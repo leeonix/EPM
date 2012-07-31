@@ -1,0 +1,2 @@
+[DataBase]
+Connection=Provider=SQLOLEDB.1;Password=mhpower;Persist Security Info=True;User ID=sa;Initial Catalog=epm;Data Source=tuzz

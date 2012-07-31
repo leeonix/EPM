@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nodeSet>
+  <view uin="ek3vjf0c9aosmyi_v">
+    <property name="$defaultDiagram" value="true" />
+    <property name="$metaclass" value="Package Diagram" />
+    <property name="$name" value="Dm" />
+    <reference referencedUin="delphi:e_class:src:EPM:Dm.@unitclass">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="10,10,145,351" />
+      <reference referencedUin="delphi:e_method:src:EPM:Dm.QryWork(System.String,System.Boolean)" />
+      <reference referencedUin="delphi:e_method:src:EPM:Dm.InitCombobox(StdCtrls.TComboBox)" />
+      <reference referencedUin="delphi:e_method:src:EPM:Dm.FinishPrj(System.String,System.String,System.Int32)" />
+      <reference referencedUin="delphi:e_method:src:EPM:Dm.PausePrj(System.String,System.String,System.String)" />
+      <reference referencedUin="delphi:e_method:src:EPM:Dm.ReActiveprj(System.String,System.String)" />
+      <reference referencedUin="delphi:e_method:src:EPM:Dm.SetTaskNode(System.String,System.String,System.String,Classes.TStringList)" />
+      <reference referencedUin="delphi:e_method:src:EPM:Dm.ArcPrj(System.String,System.String)" />
+      <reference referencedUin="delphi:e_method:src:EPM:Dm.Returnprj(System.String)" />
+      <reference referencedUin="delphi:e_method:src:EPM:Dm.Cleardel(System.String)" />
+      <reference referencedUin="delphi:e_method:src:EPM:Dm.Wtdesign(System.String,System.String,System.String)" />
+      <reference referencedUin="delphi:e_method:src:EPM:Dm.Delprj(System.String)" />
+      <reference referencedUin="delphi:e_method:src:EPM:Dm.Loaddata(ADODB.TADOQuery,System.String,Forms.TFrame,System.Int32)" />
+      <reference referencedUin="delphi:e_method:src:EPM:Dm.InputALLData(System.String,System.String,System.String,Forms.TFrame,System.Int32)" />
+      <reference referencedUin="delphi:e_method:src:EPM:Dm.gettime()" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.Dm_Epm" />
+      <reference referencedUin="delphi:e_method:src:EPM:Dm.QryWork(ADODB.TADOQuery,System.String,System.Boolean)" />
+      <reference referencedUin="delphi:l_ast:src:EPM:Dm.Dm_Epm">
+        <property name="sourceAnchor" value="155,170" />
+        <property name="targetAnchor" value="273,170" />
+        <property name="bendpoints" value="" />
+      </reference>
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.strFinishPrj" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.strFinishHidePrj" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.strPausePrj" />
+    </reference>
+    <reference referencedUin="delphi:e_class:src:EPM:Dm.TPrjState">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="180,20,80,128" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TPrjState.tpDelegated" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TPrjState.tpCanceled" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TPrjState.tpPocessing" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TPrjState.tpDeleted" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TPrjState.tpArchived" />
+    </reference>
+    <reference referencedUin="delphi:e_class:src:EPM:Dm.TflowState">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="180,220,71,113" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TflowState.tfdisActive" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TflowState.tfActive" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TflowState.tfPuased" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TflowState.tfHide" />
+    </reference>
+    <reference referencedUin="delphi:e_class:src:EPM:Dm.TDm_Epm">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="273,1,297,1855" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportYYSFRQ" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportPFWJWH" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportKYSBRQ" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportKYPFRQ" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportKYSBBM" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportDYDJ" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportZJRL" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportZJPFWH" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportYSSBRQ" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportZJPFRQ" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportGSTZ" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportPRIMMATERIAL" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportPRJADD" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportSLYYY" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportNODENAME" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportEXECUTOR" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportTYPENAME" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportDESIGNBY" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportCHECKBY" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportBUDGETBY" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportBUDCHECKBY" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportAPPROVBY" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportSENDDOCBY" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportDESIGNDATE" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportCHECKDATE" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportBUDDATE" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportAPPROVDATE" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportSENDDOCDATE" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportRECIEVEDATE" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.cn_nameplate" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_NameplateExpr1" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_NameplateEx3EmploName" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_NameplateEx1StateName" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_NameplateEx2Ratifier" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_NameplateNPTextR" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_NameplateOldNPTextR" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_NameplateOldNPNOR" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_NameplateOldNPNameR" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_NameplateNPNameR" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_NameplateNPNOR" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_NameplateDispatcher" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_NameplateLocusElecStaR" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_NameplateLocusCircuitryR" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_NameplateArchiver" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.adoqry_planSBF" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.adoqry_com" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.adoqry_planAccCorpcode" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.adoqry_budBudgetId" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.adoqry_budSjFee" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportBudFee" />
+      <reference referencedUin="delphi:e_method:src:EPM:Dm.TDm_Epm.DataModuleCreate(System.Object)" />
+      <reference referencedUin="delphi:e_method:src:EPM:Dm.TDm_Epm.ADOQry_docAfterInsert(DB.TDataSet)" />
+      <reference referencedUin="delphi:e_method:src:EPM:Dm.TDm_Epm.ADOQry_docCalcFields(DB.TDataSet)" />
+      <reference referencedUin="delphi:e_method:src:EPM:Dm.TDm_Epm.Lindoc(System.String,System.Int32)" />
+      <reference referencedUin="delphi:e_method:src:EPM:Dm.TDm_Epm.Lindoc(System.String,System.String)" />
+      <reference referencedUin="delphi:e_method:src:EPM:Dm.TDm_Epm.GetnewitemNo(System.String)" />
+      <reference referencedUin="delphi:e_method:src:EPM:Dm.TDm_Epm.GeneratWorkplan(System.String,System.String,System.TDateTime)" />
+      <reference referencedUin="delphi:e_method:src:EPM:Dm.TDm_Epm.SetFlowlog(System.String,System.String,System.String,System.String,System.String,Classes.TStringList)" />
+      <reference referencedUin="delphi:e_method:src:EPM:Dm.TDm_Epm.InsertParam(System.String,System.String)" />
+      <reference referencedUin="delphi:e_method:src:EPM:Dm.TDm_Epm.InitParam(StdCtrls.TComboBox,System.String,System.String)" />
+      <reference referencedUin="delphi:e_method:src:EPM:Dm.TDm_Epm.InitCombobox(StdCtrls.TComboBox)" />
+      <reference referencedUin="delphi:e_method:src:EPM:Dm.TDm_Epm.DisusePrj(System.String,System.String)" />
+      <reference referencedUin="delphi:e_method:src:EPM:Dm.TDm_Epm.DateFieldGetText(DB.TField,ref@System.String)" />
+      <reference referencedUin="delphi:e_method:src:EPM:Dm.TDm_Epm.DateFieldSetText(DB.TField,System.String)" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.cn_epm" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.adoqry_pub" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.adoqry_input" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.qry_gettime" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.opendlg" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_doc" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ds_doc" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_docSSXMDM" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_docDOCCODE" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_docDOCTYPE" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_docCREATEBY" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_docFILETYPE" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_docLAYOUT" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_docSCALE" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_docVERSION" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_docREMARK" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_docCREATEDATE" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_docid" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.adoqry_plan" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ds_plan" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.adoqry_planJHKGRQ" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.adoqry_planJHJGRQ" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.adoqry_planSGLB" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.adoqry_planSGKGRQ" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.adoqry_planSGJGRQ" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.adoqry_planJLF" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.adoqry_planHTJE" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.adoqry_planSGDW" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.adoqry_planPrintDate" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.adoqry_planPRJCODE" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.adoqry_planP_SGDW" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.adoqry_rep" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.adoqry_bud" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.adoqry_budPRJCODE" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.adoqry_budBUDFEE" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.adoqry_budFEENUM" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.adoqry_budITEM_K1" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ds_bud" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_Nameplate" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.DS_NamePlate" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_docDOCNAME" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_docFILENAME" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.adoqry_budBUDITEM" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_export" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportPRJNAME" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportPRJACCOUNT" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportCONSTRUCTBY" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportDESIGNCOMPANY" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportOTHERTYPE" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportYHMC" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportLXR" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportLXDH" />
+      <reference referencedUin="delphi:e_field:src:EPM:Dm.TDm_Epm.ADOQry_exportYYSFJE" />
+      <reference referencedUin="delphi:e_method:src:EPM:Dm.TDm_Epm.Wtdesign(System.String,System.String,System.String)" />
+    </reference>
+  </view>
+</nodeSet>

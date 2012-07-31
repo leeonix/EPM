@@ -1,0 +1,38 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{b0ff95b9-bec4-4fe9-9985-ac0bd30b7689}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="Client for SubPsb\EPM.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<BorlandProject>
+					<Default.Personality/>
+				</BorlandProject>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="EPM">
+			<MSBuild Projects="Client for SubPsb\EPM.dproj"/>
+		</Target>
+		<Target Name="EPM:Clean">
+			<MSBuild Targets="Clean" Projects="Client for SubPsb\EPM.dproj"/>
+		</Target>
+		<Target Name="EPM:Make">
+			<MSBuild Targets="Make" Projects="Client for SubPsb\EPM.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="EPM"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="EPM:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="EPM:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>

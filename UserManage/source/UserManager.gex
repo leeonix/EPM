@@ -1,0 +1,10 @@
+[General]
+Name=UserManager
+Project=1
+[Classes]
+Count=5
+Class0="TForm_Main","TForm","FormMain","0","D:\Dev Projects\ProjectMange\UserManage\原代码\FormMain.pas"
+Class1="TDM","TDataModule","DataModule","0","D:\Dev Projects\ProjectMange\UserManage\原代码\DataModule.pas"
+Class2="TFrame_BaseMod","TFrame","FrameBaseMod","0","D:\Dev Projects\ProjectMange\UserManage\原代码\FrameBaseMod.pas"
+Class3="TFrame_ModUser","TFrame_BaseMod","FrameModUser","0","D:\Dev Projects\ProjectMange\UserManage\原代码\FrameModUser.pas"
+Class4="TFrame_ModCorp","TFrame_BaseMod","FrameModCorp","0","D:\Dev Projects\ProjectMange\UserManage\原代码\FrameModCorp.pas"

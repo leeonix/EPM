@@ -1,0 +1,14 @@
+[General]
+Name=FlowManage
+Project=1
+[Classes]
+Count=9
+Class0="Tfrm_main","TForm","Main","0","D:\Dev Projects\ProjectMange\FlowManager\Main.pas"
+Class1="TRole","TObject","FlowBase","0","D:\Dev Projects\ProjectMange\FlowManager\FlowBase.pas"
+Class2="TPrjFlow","TObject","FlowBase","0","D:\Dev Projects\ProjectMange\FlowManager\FlowBase.pas"
+Class3="TflowNode","TObject","FlowBase","0","D:\Dev Projects\ProjectMange\FlowManager\FlowBase.pas"
+Class4="Tfrm_TaskProp","TForm","TaskProperty","0","D:\Dev Projects\ProjectMange\FlowManager\TaskProperty.pas"
+Class5="TDm_flow","TDataModule","UDm","0","D:\Dev Projects\ProjectMange\FlowManager\UDm.pas"
+Class6="Tfrm_flow","TForm","Ufrm_flow","0","D:\Dev Projects\ProjectMange\FlowManager\Ufrm_flow.pas"
+Class7="Tfrm_Link","TForm","Ufrm_Link","0","D:\Dev Projects\ProjectMange\FlowManager\Ufrm_Link.pas"
+Class8="Tfrm_Print","TForm","Ufrm_Print","0","D:\Dev Projects\ProjectMange\FlowManager\Ufrm_Print.pas"

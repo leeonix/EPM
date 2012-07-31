@@ -1,0 +1,1286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{1ba77fd0-a918-4e65-a49f-61e4646286fb}</ProjectGuid>
+    <MainSource>EPM.dpr</MainSource>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+    <DCC_DependencyCheckOutputName>..\Release\EPM.exe</DCC_DependencyCheckOutputName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_WriteableConstants>True</DCC_WriteableConstants>
+    <DCC_SymbolReferenceInfo>2</DCC_SymbolReferenceInfo>
+    <DCC_ExeOutput>C:\Working\PsProjectManage\Release</DCC_ExeOutput>
+    <DCC_DcuOutput>C:\Working\PsProjectManage\Client for SubPsb\lib</DCC_DcuOutput>
+    <DCC_ObjOutput>C:\Working\PsProjectManage\Client for SubPsb\lib</DCC_ObjOutput>
+    <DCC_HppOutput>C:\Working\PsProjectManage\Client for SubPsb\lib</DCC_HppOutput>
+    <DCC_UnitSearchPath>$(BDS)\lib\Debug;$(BDS)\Lib\Debug\Indy10;C:\Working\PsProjectManage\Client for SubPsb</DCC_UnitSearchPath>
+    <DCC_ResourcePath>$(BDS)\lib\Debug;$(BDS)\Lib\Debug\Indy10;C:\Working\PsProjectManage\Client for SubPsb</DCC_ResourcePath>
+    <DCC_ObjPath>$(BDS)\lib\Debug;$(BDS)\Lib\Debug\Indy10;C:\Working\PsProjectManage\Client for SubPsb</DCC_ObjPath>
+    <DCC_IncludePath>$(BDS)\lib\Debug;$(BDS)\Lib\Debug\Indy10;C:\Working\PsProjectManage\Client for SubPsb</DCC_IncludePath>
+    <DCC_Define>RELEASE</DCC_Define>
+    <DCC_UNSAFE_TYPE>True</DCC_UNSAFE_TYPE>
+    <DCC_UNSAFE_CODE>True</DCC_UNSAFE_CODE>
+    <DCC_UNSAFE_CAST>True</DCC_UNSAFE_CAST>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_WriteableConstants>True</DCC_WriteableConstants>
+    <DCC_ExeOutput>C:\Working\PsProjectManage\Release</DCC_ExeOutput>
+    <DCC_DcuOutput>C:\Working\PsProjectManage\Client for SubPsb\lib</DCC_DcuOutput>
+    <DCC_ObjOutput>C:\Working\PsProjectManage\Client for SubPsb\lib</DCC_ObjOutput>
+    <DCC_HppOutput>C:\Working\PsProjectManage\Client for SubPsb\lib</DCC_HppOutput>
+    <DCC_UnitSearchPath>$(BDS)\lib\Debug;$(BDS)\Lib\Debug\Indy10;C:\Working\PsProjectManage\Client for SubPsb</DCC_UnitSearchPath>
+    <DCC_ResourcePath>$(BDS)\lib\Debug;$(BDS)\Lib\Debug\Indy10;C:\Working\PsProjectManage\Client for SubPsb</DCC_ResourcePath>
+    <DCC_ObjPath>$(BDS)\lib\Debug;$(BDS)\Lib\Debug\Indy10;C:\Working\PsProjectManage\Client for SubPsb</DCC_ObjPath>
+    <DCC_IncludePath>$(BDS)\lib\Debug;$(BDS)\Lib\Debug\Indy10;C:\Working\PsProjectManage\Client for SubPsb</DCC_IncludePath>
+    <DCC_Define>DEBUG</DCC_Define>
+    <DCC_UNSAFE_TYPE>True</DCC_UNSAFE_TYPE>
+    <DCC_UNSAFE_CODE>True</DCC_UNSAFE_CODE>
+    <DCC_UNSAFE_CAST>True</DCC_UNSAFE_CAST>
+    <DCC_SymbolReferenceInfo>2</DCC_SymbolReferenceInfo>
+    <DCC_RangeChecking>True</DCC_RangeChecking>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <Borland.Personality>Delphi.Personality</Borland.Personality>
+    <Borland.ProjectType>VCLApplication</Borland.ProjectType>
+    <BorlandProject>
+<BorlandProject><Delphi.Personality><Parameters><Parameters Name="UseLauncher">False</Parameters><Parameters Name="LoadAllSymbols">True</Parameters><Parameters Name="LoadUnspecifiedSymbols">False</Parameters></Parameters><VersionInfo><VersionInfo Name="IncludeVerInfo">True</VersionInfo><VersionInfo Name="AutoIncBuild">False</VersionInfo><VersionInfo Name="MajorVer">2</VersionInfo><VersionInfo Name="MinorVer">1</VersionInfo><VersionInfo Name="Release">1</VersionInfo><VersionInfo Name="Build">0</VersionInfo><VersionInfo Name="Debug">False</VersionInfo><VersionInfo Name="PreRelease">False</VersionInfo><VersionInfo Name="Special">False</VersionInfo><VersionInfo Name="Private">False</VersionInfo><VersionInfo Name="DLL">False</VersionInfo><VersionInfo Name="Locale">2052</VersionInfo><VersionInfo Name="CodePage">936</VersionInfo></VersionInfo><VersionInfoKeys><VersionInfoKeys Name="CompanyName">上海晨辉科技</VersionInfoKeys><VersionInfoKeys Name="FileDescription">工程管理供电分公司版本</VersionInfoKeys><VersionInfoKeys Name="FileVersion">2.1.1.0</VersionInfoKeys><VersionInfoKeys Name="InternalName"></VersionInfoKeys><VersionInfoKeys Name="LegalCopyright"></VersionInfoKeys><VersionInfoKeys Name="LegalTrademarks"></VersionInfoKeys><VersionInfoKeys Name="OriginalFilename"></VersionInfoKeys><VersionInfoKeys Name="ProductName">Easy Project</VersionInfoKeys><VersionInfoKeys Name="ProductVersion">2.0.0.0</VersionInfoKeys><VersionInfoKeys Name="Comments"></VersionInfoKeys></VersionInfoKeys><Excluded_Packages>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dcldxdbtrD11.bpl">ExpressDBTree by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\5.0\Bpl\dxSkinsdxDLPainterD11.bpl">ExpressSkins Library Painter for Docking Library by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\5.0\Bpl\dxSkinsdxBarPainterD11.bpl">ExpressSkins Library Painter for Bars by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dcldxFlowChartD11.bpl">ExpressFlowChart by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dcldxNavBarD11.bpl">ExpressNavBar 2 by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Program Files\Raize\RC5\Bin\RaizeComponentsVclDb_Design100.bpl">Raize Components 5.5.1 (Data-Aware)</Excluded_Packages>
+      <Excluded_Packages Name="$(BDS)\Bin\dclIndyProtocols100.bpl">Indy 10 Protocols Design Time</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dcldxtrmdD11.bpl">ExpressTreePrintedDataSet by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dcldxDBOrD11.bpl">ExpressDBOrgChart by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dclcxPivotGridChartD11.bpl">ExpressPivotGrid 2 connection to ExpressQuantumGrid Chart View by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dclcxPivotGridOLAPD11.bpl">ExpressPivotGrid 2 OLAP by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dclcxSchedulerGridD11.bpl">ExpressScheduler 3 connection to ExpressQuantumGrid by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dcldxSBD11.bpl">ExpressSideBar by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dcldxSkinscxPCPainterD11.bpl">ExpressSkins Library Uses Clause Auto Fill Helper for PageControl Painter by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dcldxSkinscxScheduler3PainterD11.bpl">ExpressSkins Library Uses Clause Auto Fill Helper for Scheduler 3 Painter by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dcldxSkinsdxNavBar2PainterD11.bpl">ExpressSkins Library Uses Clause Auto Fill Helper for NavBar 2 Painter by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dcldxSpellCheckerD11.bpl">ExpressSpellChecker 2 by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dclcxSpreadSheetD11.bpl">ExpressSpreadSheet by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dclcxVerticalGridD11.bpl">ExpressVerticalGrid by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dcldxPSLnksD11.bpl">ExpressPrinting System 4 ReportLinks (Standard) by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dcldxPScxCommonD11.bpl">ExpressPrinting System 4 Cross Platform Library by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dcldxPScxExtCommonD11.bpl">ExpressPrinting System 4 Extended Cross Platform Library by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dcldxPScxGrid6LnkD11.bpl">ExpressPrinting System 4 ReportLink for ExpressQuantumGrid 6 by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dcldxPScxPivotGrid2LnkD11.bpl">ExpressPrinting System 4 ReportLink for ExpressPivotGrid 2 by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dcldxPScxScheduler3LnkD11.bpl">ExpressPrinting System 4 ReportLink for ExpressScheduler 3 by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dcldxPScxSSLnkD11.bpl">ExpressPrinting System 4 ReportLink for ExpressSpreadSheet by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dcldxPScxTL5LnkD11.bpl">ExpressPrinting System 4 ReportLink for ExpressQuantumTreeList 5 by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dcldxPScxVGridLnkD11.bpl">ExpressPrinting System 4 ReportLink for ExpressVerticalGrid by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dcldxPSDBTeeChartD11.bpl">ExpressPrinting System 4 ReportLink for DBTeeChart by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dcldxPSdxOCLnkD11.bpl">ExpressPrinting System 4 ReportLinks for ExpressOrgChart by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dcldxPSdxDBOCLnkD11.bpl">ExpressPrinting System 4 ReportLinks for ExpressDBOrgChart by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dcldxPSdxDBTVLnkD11.bpl">ExpressPrinting System 4 ReportLink for ExpressDBTree by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dcldxPSdxFCLnkD11.bpl">ExpressPrinting System 4 ReportLinks for ExpressFlowChart by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dcldxPSdxLC2LnkD11.bpl">ExpressPrinting System 4 ReportLink for ExpressLayoutControl 2 by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dcldxPSdxMVLnkD11.bpl">ExpressPrinting System 4 ReportLink for ExpressMasterView by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dxPScxPCProdD11.bpl">ExpressPrinting System 4 ContainerProducer for ExpressPageControl 2 by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dcldxPSPrVwAdvD11.bpl">ExpressPrinting System 4 Advanced Preview Window by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dcldxPSPrVwRibbonD11.bpl">ExpressPrinting System 4 Ribbon Preview Window by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dxSkinsdxRibbonPainterD11.bpl">ExpressSkins Library Painter for Ribbon by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dxSkinXmas2008BlueD11.bpl">ExpressSkins - Xmas2008Blue Skin by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dxSkinBlackD11.bpl">ExpressSkins - Black Skin by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dxSkinBlueD11.bpl">ExpressSkins - Blue Skin by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dxSkinCaramelD11.bpl">ExpressSkins - Caramel Skin by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dxSkinCoffeeD11.bpl">ExpressSkins - Coffee Skin by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dxSkinDarkRoomD11.bpl">ExpressSkins - DarkRoom Skin by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dxSkinDarkSideD11.bpl">ExpressSkins - DarkSide Skin by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dxSkinFoggyD11.bpl">ExpressSkins - Foggy Skin by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dxSkinGlassOceansD11.bpl">ExpressSkins - GlassOceans Skin by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dxSkiniMaginaryD11.bpl">ExpressSkins - iMaginary Skin by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dxSkinLilianD11.bpl">ExpressSkins - Lilian Skin by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dxSkinLiquidSkyD11.bpl">ExpressSkins - LiquidSky Skin by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dxSkinLondonLiquidSkyD11.bpl">ExpressSkins - LondonLiquidSky Skin by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dxSkinMcSkinD11.bpl">ExpressSkins - McSkin Skin by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dxSkinMoneyTwinsD11.bpl">ExpressSkins - MoneyTwins Skin by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dxSkinOffice2007BlackD11.bpl">ExpressSkins - Office2007Black Skin by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dxSkinOffice2007BlueD11.bpl">ExpressSkins - Office2007Blue Skin by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dxSkinOffice2007GreenD11.bpl">ExpressSkins - Office2007Green Skin by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dxSkinOffice2007PinkD11.bpl">ExpressSkins - Office2007Pink Skin by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dxSkinOffice2007SilverD11.bpl">ExpressSkins - Office2007Silver Skin by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dxSkinOffice2010BlackD11.bpl">ExpressSkins - Office2010Black Skin</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dxSkinOffice2010BlueD11.bpl">ExpressSkins - Office2010Blue Skin</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dxSkinOffice2010SilverD11.bpl">ExpressSkins - Office2010Silver Skin</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dxSkinPumpkinD11.bpl">ExpressSkins - Pumpkin Skin by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dxSkinSevenD11.bpl">ExpressSkins - Seven Skin by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dxSkinSharpD11.bpl">ExpressSkins - Sharp Skin by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dxSkinSilverD11.bpl">ExpressSkins - Silver Skin by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dxSkinSpringTimeD11.bpl">ExpressSkins - Springtime Skin by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dxSkinStardustD11.bpl">ExpressSkins - Stardust Skin by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dxSkinSummer2008D11.bpl">ExpressSkins - Summer2008 Skin by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Allen\Documents\DevExpress VCL\Library\Delphi11\dxSkinValentineD11.bpl">ExpressSkins - Valentine Skin by Developer Express Inc.</Excluded_Packages>
+      <Excluded_Packages Name="$(BDS)\bin\dcloffice2k100.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+      <Excluded_Packages Name="$(BDS)\bin\dclofficexp100.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+    </Excluded_Packages><Source><Source Name="MainSource">EPM.dpr</Source></Source></Delphi.Personality><ModelSupport>False</ModelSupport></BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Import Project="$(MSBuildBinPath)\Borland.Delphi.Targets" />
+  <ItemGroup>
+    <DelphiCompile Include="EPM.dpr">
+      <MainSource>MainSource</MainSource>
+    </DelphiCompile>
+    <DCCReference Include="..\Common\Fmxutils.pas" />
+    <DCCReference Include="..\Common\MyReport.pas" />
+    <DCCReference Include="..\MD5\UMD5.pas" />
+    <DCCReference Include="Assets.pas">
+      <Form>Fram_gdzc</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="Asset_add.pas">
+      <Form>Frm_AddAssets</Form>
+    </DCCReference>
+    <DCCReference Include="Baseinfo_xt.pas">
+      <Form>Fram_NewNbPrj</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="Browser.pas">
+      <Form>Fram_Browser</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="BudDoc.pas">
+      <Form>Frm_buddoc</Form>
+    </DCCReference>
+    <DCCReference Include="Budget.pas">
+      <Form>Fram_Budget</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="BudgetInput.pas">
+      <Form>Frm_InputBud</Form>
+    </DCCReference>
+    <DCCReference Include="Contract.pas">
+      <Form>Frm_Contract</Form>
+    </DCCReference>
+    <DCCReference Include="DelayContract.pas">
+      <Form>frm_DelayContract</Form>
+    </DCCReference>
+    <DCCReference Include="designcontract.pas">
+      <Form>Fram_descontract</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="Dm.pas">
+      <Form>Dm_Epm</Form>
+      <DesignClass>TDataModule</DesignClass>
+    </DCCReference>
+    <DCCReference Include="Documents.pas">
+      <Form>Fram_PrjDoc</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="Engdoc.pas">
+      <Form>Fram_Dwg</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="exportfield.pas">
+      <Form>frm_export</Form>
+    </DCCReference>
+    <DCCReference Include="finance.pas">
+      <Form>Fram_Finance</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="flowcontrol.pas">
+      <Form>Frm_FlowControl</Form>
+    </DCCReference>
+    <DCCReference Include="Flowlog.pas">
+      <Form>Fram_log</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="FlowTrace.pas">
+      <Form>Fram_FlowTrace</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="framdgwt.pas">
+      <Form>Fram_dg</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="frmDelayDate.pas">
+      <Form>frm_DateRange</Form>
+    </DCCReference>
+    <DCCReference Include="frmplan.pas">
+      <Form>Frm_Plan</Form>
+    </DCCReference>
+    <DCCReference Include="frm_exportcontractlist.pas">
+      <Form>frm_contractlist</Form>
+    </DCCReference>
+    <DCCReference Include="frm_sgdw.pas">
+      <Form>frm_contractcompany</Form>
+    </DCCReference>
+    <DCCReference Include="Getclendar.pas">
+      <Form>Frm_GetClendar</Form>
+    </DCCReference>
+    <DCCReference Include="importbudget.pas">
+      <Form>frm_importbudget</Form>
+    </DCCReference>
+    <DCCReference Include="kybg.pas">
+      <Form>Fram_kybg</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="Login.pas">
+      <Form>Frm_Login</Form>
+    </DCCReference>
+    <DCCReference Include="Main.pas">
+      <Form>Frm_Main</Form>
+    </DCCReference>
+    <DCCReference Include="Materal.pas">
+      <Form>Fram_Mat</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="MatInput.pas">
+      <Form>frm_SelectMat</Form>
+    </DCCReference>
+    <DCCReference Include="NewDesignPrj.pas">
+      <Form>fram_designprj</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="newdoc.pas">
+      <Form>Frm_NewDoc</Form>
+    </DCCReference>
+    <DCCReference Include="newitem.pas">
+      <Form>Frm_New</Form>
+    </DCCReference>
+    <DCCReference Include="newprj.pas">
+      <Form>Fram_NewPrj</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="newygprj.pas">
+      <Form>Fram_NewygPrj</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="NodePlan.pas">
+      <Form>Fram_Nodeplan</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="PrjAcount.pas">
+      <Form>frm_GenPrjacc</Form>
+    </DCCReference>
+    <DCCReference Include="Prjbase.pas">
+      <Form>Fram_prjbase</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="prjbrowser.pas">
+      <Form>Framtree_browser</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="PrjCheck.pas">
+      <Form>Fram_prjcheck</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="PrjExecontract.pas">
+      <Form>Fram_Execontract</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="PrjGantte.pas">
+      <Form>Fram_gante</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="PrjPlan.pas">
+      <Form>Fram_Prjplan</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="prjremark.pas">
+      <Form>Frame_remark</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="Prj_bdys.pas">
+      <Form>Fram_bdys</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="Prj_Design.pas">
+      <Form>Frm_PrjDesign</Form>
+    </DCCReference>
+    <DCCReference Include="Prj_jgys.pas">
+      <Form>Frame_Jgys</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="pubvar.pas" />
+    <DCCReference Include="ReportManag.pas">
+      <Form>Frm_report</Form>
+    </DCCReference>
+    <DCCReference Include="Search.pas">
+      <Form>frm_search</Form>
+    </DCCReference>
+    <DCCReference Include="searchtree.pas">
+      <Form>Framtree_Search</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="selectcontract.pas">
+      <Form>Frm_Selectcontract</Form>
+    </DCCReference>
+    <DCCReference Include="Setparam.pas">
+      <Form>frm_setpara</Form>
+    </DCCReference>
+    <DCCReference Include="setpwd.pas">
+      <Form>Frm_ModPwd</Form>
+    </DCCReference>
+    <DCCReference Include="subPrjAcc.pas">
+      <Form>fram_subprjacc</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="Sumcondition.pas">
+      <Form>frm_sumcondition</Form>
+    </DCCReference>
+    <DCCReference Include="tasktree.pas">
+      <Form>Framtree_Task</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="treefram.pas">
+      <Form>Fram_Tree</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="TreeListprj.pas">
+      <Form>Fram_TltBase</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="Udelayprj.pas">
+      <Form>frm_Delayprj</Form>
+    </DCCReference>
+    <DCCReference Include="UFindPrj.pas">
+      <Form>frm_findprj</Form>
+    </DCCReference>
+    <DCCReference Include="Viewdoc.pas">
+      <Form>Frm_Viewdoc</Form>
+    </DCCReference>
+  </ItemGroup>
+</Project>

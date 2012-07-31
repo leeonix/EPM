@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<TgConfig Version="3" SubLevelDisabled="False">
+  <Option Name="namespaceFolder.Assets" Type="System.String" Value="" IsBrowsable="False" />
+  <Option Name="namespaceFolder.ApplyNamePlate" Type="System.String" Value="" IsBrowsable="False" />
+  <Option Name="namespaceFolder.Asset_add" Type="System.String" Value="" IsBrowsable="False" />
+  <Option Name="namespaceFolder.Baseinfo_xt" Type="System.String" Value="" IsBrowsable="False" />
+  <Option Name="namespaceFolder.Dm" Type="System.String" Value="" IsBrowsable="False" />
+  <Option Name="namespaceFolder.Ubuddetail" Type="System.String" Value="" IsBrowsable="False" />
+  <Option Name="namespaceFolder.Documents" Type="System.String" Value="" IsBrowsable="False" />
+  <Option Name="namespaceFolder.TreeFram" Type="System.String" Value="" IsBrowsable="False" />
+  <Option Name="namespaceFolder.GetClendar" Type="System.String" Value="" IsBrowsable="False" />
+  <Option Name="namespaceFolder.Pubvar" Type="System.String" Value="" IsBrowsable="False" />
+</TgConfig>
