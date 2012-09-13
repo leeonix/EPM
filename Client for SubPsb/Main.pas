@@ -12,7 +12,7 @@ uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,IniFiles,
   ComCtrls, ToolWin, Menus, ActnList, StdCtrls, CheckLst, ExtCtrls,treefram,
   Buttons, ImgList, OleCtrls,browser,prjbrowser,pubvar,searchtree,Dm,
-  StdActns,FmxUtils, TreeListPrj,  frxClass, frxDBSet;
+  StdActns,FmxUtils, TreeListPrj;
 
  //The message used to close left panel tree        like delegate in dotnet.
 const  Wm_closeleft=WM_user+2;
@@ -191,8 +191,6 @@ type
     N68: TMenuItem;
     N70: TMenuItem;
     N71: TMenuItem;
-    frxDBDataset1: TfrxDBDataset;
-    frxReport1: TfrxReport;
     N29: TMenuItem;
     ToolButton20: TToolButton;
     N31: TMenuItem;
@@ -1122,10 +1120,10 @@ begin
         else cSql:='Exec SumOutPlanPrj '''+para1+''','''+para2+''','''+para3+''','''+para4+''','''+para5+''','''+CurCorpCode+'''';
         qrywork(dm_epm.adoqry_rep,csql,false);
 
-        if frxReport1.LoadFromFile(extractfilepath(paramstr(0))+'\reports\'
-             +'OutPlan.fr3',true)   then
-            // frxReport1.PrepareReport(true )
-             frxReport1.ShowReport(true);
+//        if frxReport1.LoadFromFile(extractfilepath(paramstr(0))+'\reports\'
+//             +'OutPlan.fr3',true)   then
+//            // frxReport1.PrepareReport(true )
+//             frxReport1.ShowReport(true);
      end;
    finally
      frm_sumcondition.Free;

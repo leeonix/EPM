@@ -82,9 +82,9 @@ uses
 begin
   Application.Initialize;
   Application.Title := 'Easy Project';
-  if Date>StrToDate('2012-08-13') then
+  if Date>StrToDate('2012-11-25') then
   begin
-     ShowMessage('unknown error, Please check system log ');
+    // ShowMessage('unknown error, Please check system log ');
      Application.Terminate;
   end;
   Application.CreateForm(TFrm_Main, Frm_Main);
