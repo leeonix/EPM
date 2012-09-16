@@ -363,7 +363,7 @@ begin
      PrintStr.Add(tel);
      PrintStr.Add(address);      //59
      PrintStr.Add(gcnr.Text);    //60
-     PrintStr.Add(address);    //61
+     PrintStr.Add(PrjAdd);    //61
      MyReport1.templatefilename:='designcontract';
      MyReport1.execute('',PrintStr);
    finally

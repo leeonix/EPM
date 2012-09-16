@@ -335,10 +335,10 @@ begin
    //PrintStrings.Add(trim(fieldbyname('chdw').AsString));      // 测绘合同乙方单位
    PrintStrings.Add(Fprjname);     //工程名称
    PrintStrings.Add(Fprjaccount);    //工程账号
-   PrintStrings.Add(FprjAddress);    //工程地点
-   PrintStrings.Add(Money2ChineseCapital2(fieldbyname('chf').AsFloat));   //测绘费
+   PrintStrings.Add(FP_sgdw);    //总包单位
+   PrintStrings.Add(Money2ChineseCapital2(fieldbyname('chf').AsFloat)+'('+fieldbyname('chf').AsString+'元)');   //测绘费
    PrintStrings.Add(FPrintDate);
-   PrintStrings.Add(Loginuser);   // 经办人
+  // PrintStrings.Add(Loginuser);   // 经办人
   end;
    MyReport1.templatefilename:='chht';
    MyReport1.execute('',PrintStrings);
