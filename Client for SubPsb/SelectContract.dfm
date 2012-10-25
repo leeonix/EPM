@@ -113,7 +113,7 @@ object Frm_Selectcontract: TFrm_Selectcontract
     Reporttitle = 'Excel'#36755#20986
     prefixchar = '@'
     reporttype = rtcard
-    Left = 270
-    Top = 89
+    Left = 38
+    Top = 193
   end
 end

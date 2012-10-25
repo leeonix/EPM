@@ -84,27 +84,40 @@ end;
 
 function Tfrm_importbudget.UpdateDb(prjaccount, jlf, chf, htje, acf, sjf,sumfee,prjtype,jsrq: string): boolean;
 var csql, cInsertSql,cUPdateSql,prjcode:string;
+var standardstr: string;
 const Insertsql = 'INSERT INTO ARRANGE (PrjCode,sgdw,Htje,Jlf,Chf,Jlfee,Sjf,sumfee) '
      +'values(''%S'',''%S'',''%S'',''%S'',''%S'',''%S'',''%S'',''%S'')';
 const Updatesql ='UPDATE ARRANGE SET htje=''%S'',Jlf = ''%S'',chf=''%S'',jlfee=''%S'',sjf=''%S'',sumfee=''%S'',jsrq=''%S'''
        +' where prjcode =''%S''';
 const UpdateprjType ='Update projectinfo set prjtype=''%S'' where prjcode =''%S''';
 begin
-    if (Pos('-',prjaccount)>12) then
-    csql:= 'select prjcode from projectinfo where LEFT(RTRIM(LTRIM(PRJACCOUNT)),12)+ RIGHT(RTRIM(LTRIM(PRJACCOUNT)),LEN(RTRIM(LTRIM(PRJACCOUNT)))- CHARINDEX('''
-        +'-'+''',RTRIM(LTRIM(PRJACCOUNT)))+1) =  '''+prjaccount+''''
-    else  if (Length(prjaccount)=12) then
-    csql:= 'select prjcode from projectinfo where   LEFT(RTRIM(LTRIM(PRJACCOUNT)),12) =  '''+prjaccount+''''
-    else
-     csql:= 'select prjcode from projectinfo where RTRIM(LTRIM(PRJACCOUNT)) =  '''+prjaccount+'''' ;
+
+   // 修改于2012年10月25日  ,导入逻辑为：
+   // 1,首先匹配表格中的账号，如果epm中找到全匹配的项目，则导入 ，否则转2
+   // 2，如果excel表格中，工程账号包含-字符，即属于分账号   则按照标准格式来做匹配，即表格和epm中都取12位编码+ ‘-’字符后面部分来匹配
+   //    否则 如果是 总账号，那么匹配前12位。
+   standardstr := LeftStr(prjaccount,12)  + RightStr(prjaccount,Length(prjaccount) - Pos('-',prjaccount )+1);
+    csql:= 'select prjcode from projectinfo where RTRIM(LTRIM(PRJACCOUNT)) =  '''+prjaccount+'''' ;
     QryWork(csql);
-    prjcode :=  Dm_Epm.adoqry_pub.FieldByName('prjcode').AsString;
+
+    if  Dm_Epm.adoqry_pub.IsEmpty then
+    begin
+       if (Pos('-',prjaccount)>12) then
+        csql:= 'select prjcode from projectinfo where LEFT(RTRIM(LTRIM(PRJACCOUNT)),12)+ RIGHT(RTRIM(LTRIM(PRJACCOUNT)),LEN(RTRIM(LTRIM(PRJACCOUNT)))- CHARINDEX('''
+            +'-'+''',RTRIM(LTRIM(PRJACCOUNT)))+1) =  '''+ standardstr +''''
+
+        else
+           csql:= 'select prjcode from projectinfo where   LEFT(RTRIM(LTRIM(PRJACCOUNT)),12) =  '''+ LeftStr(prjaccount,12)+'''' ;
+
+         QryWork(csql);
+    end;
+
     if  Dm_Epm.adoqry_pub.IsEmpty then
     begin
         ShowMessage('帐号:'+prjaccount+'与EPM里不匹配或者不存在，未能导入该条表格记录,请检查');
         exit;
     end;
-    //
+     prjcode :=  Dm_Epm.adoqry_pub.FieldByName('prjcode').AsString;
     csql := 'select prjcode,sgdw,jldw from arrange where prjcode = '''+prjcode+'''';
     QryWork(csql);
     if  Dm_Epm.adoqry_pub.IsEmpty then
@@ -132,26 +145,30 @@ end;
 
 function Tfrm_importbudget.UpdateDesignContract(erpcode, sjdw,prjacc:string): boolean;
 var csql, cInsertSql,cUPdateSql,prjname,prjtype:string;
+var standardstr: string;
 const Insertsql = 'INSERT INTO DESCONTRACT (Erpcode,stdw,PrjName,Prjtype) '
      +'values(''%S'',''%S'',''%S'',''%S'')';
 const updatesql ='update descontract set stdw=''%S'' , prjname=''%S'', prjtype=''%S'' where erpcode=''%S''';
 
 begin
- if (Pos('-',prjacc)>12) then
-    csql:= 'select prjname,PRJTYPE from projectinfo where LEFT(RTRIM(LTRIM(PRJACCOUNT)),12)+ RIGHT(RTRIM(LTRIM(PRJACCOUNT)),LEN(RTRIM(LTRIM(PRJACCOUNT)))- CHARINDEX('''
-        +'-'+''',RTRIM(LTRIM(PRJACCOUNT)))+1) =  '''+prjacc+''''
-    else  if (Length(prjacc)=12) then
-    csql:= 'select prjname,PRJTYPE from projectinfo where   LEFT(RTRIM(LTRIM(PRJACCOUNT)),12) =  '''+prjacc+''''
-    else
+    standardstr := LeftStr(prjacc,12)  + RightStr(prjacc,Length(prjacc) - Pos('-',prjacc )+1);
     csql:= 'select prjname,PRJTYPE from projectinfo where  RTRIM(LTRIM(PRJACCOUNT)) = '''+prjacc+'''' ;
     QryWork(csql);
-    prjname :=  Dm_Epm.adoqry_pub.FieldByName('prjname').AsString;
-    prjtype := Dm_Epm.adoqry_pub.FieldByName('PRJTYPE').AsString;
+    if  Dm_Epm.adoqry_pub.IsEmpty then
+    begin
+         if (Pos('-',prjacc)>12) then
+          csql:= 'select prjname,PRJTYPE from projectinfo where LEFT(RTRIM(LTRIM(PRJACCOUNT)),12)+ RIGHT(RTRIM(LTRIM(PRJACCOUNT)),LEN(RTRIM(LTRIM(PRJACCOUNT)))- CHARINDEX('''
+                +'-'+''',RTRIM(LTRIM(PRJACCOUNT)))+1) =  '''+standardstr+''''
+          else   csql:= 'select prjname,PRJTYPE from projectinfo where   LEFT(RTRIM(LTRIM(PRJACCOUNT)),12) =  '''+LeftStr(prjacc,12)+''''  ;
+        QryWork(csql);
+    end;
     if  Dm_Epm.adoqry_pub.IsEmpty then
     begin
         ShowMessage('帐号:'+prjacc+'与EPM里不匹配或者不存在，不能导入设计合同数据');
         exit;
     end;
+    prjname :=  Dm_Epm.adoqry_pub.FieldByName('prjname').AsString;
+    prjtype := Dm_Epm.adoqry_pub.FieldByName('PRJTYPE').AsString;
     csql:= 'select Erpcode from DESCONTRACT where Erpcode = '''+erpcode+'''' ;
     QryWork(csql);
     if  Dm_Epm.adoqry_pub.IsEmpty then
