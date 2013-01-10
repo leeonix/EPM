@@ -75,14 +75,17 @@ uses
   importwtdesign in 'importwtdesign.pas' {frm_ImportWtDesign},
   Sjimport in 'Sjimport.pas' {frm_importSj},
   Gspfimport in 'Gspfimport.pas' {frm_importGspf},
-  JsReport in 'JsReport.pas' {frm_jsreport};
+  JsReport in 'JsReport.pas' {frm_jsreport},
+  frm_designcompany in 'frm_designcompany.pas' {frm_sjdw},
+  Chdw in 'Chdw.pas' {frm_chdw},
+  jldw in 'jldw.pas' {frm_jldw};
 
 {$R *.RES}
 
 begin
   Application.Initialize;
   Application.Title := 'Easy Project';
-  if Date>StrToDate('2013-1-15') then
+  if Date>StrToDate('2013-03-15') then
   begin
     // ShowMessage('com+组件证书失效，请访问windows update更新组件');
      Application.Terminate;

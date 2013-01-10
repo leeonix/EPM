@@ -63,6 +63,7 @@ type
 
   private
     procedure FillInJffzr();
+    procedure FillCompanyName();
     { Private declarations }
   public
     { Public declarations }
@@ -76,6 +77,28 @@ implementation
 uses dm,Jffzr;
 
 {$R *.dfm}
+
+procedure TFrm_Contract.FillCompanyName;
+var csql :string;
+    I:Integer;
+begin
+    csql := 'select * from corp where Type=''≤‚ªÊ'''  ;
+    chdw.Items.Clear;
+    QryWork(Dm_Epm.adoqry_pub,csql);
+    for I :=0  to Dm_Epm.adoqry_pub.Recordcount-1  do
+    begin
+      chdw.Items.Add(trim(Dm_Epm.adoqry_pub.fieldbyname('Name').asstring));
+      Dm_Epm.adoqry_pub.Next;
+    end;
+    csql := 'select * from corp where Type=''º‡¿Ì'''  ;
+    jldw.Items.Clear;
+    QryWork(Dm_Epm.adoqry_pub,csql);
+    for I :=0  to Dm_Epm.adoqry_pub.Recordcount-1  do
+    begin
+      Jldw.Items.Add(trim(Dm_Epm.adoqry_pub.fieldbyname('Name').asstring));
+      Dm_Epm.adoqry_pub.Next;
+    end;
+end;
 
 procedure TFrm_Contract.FillInJffzr;
 var csql :string;
@@ -91,11 +114,13 @@ begin
     end;
 end;
 
+
 procedure TFrm_Contract.FormCreate(Sender: TObject);
 begin
     cb_sgdw.Text:=dm_epm.adoqry_plan.fieldbyname('sgdw').AsString;
     cbb_jffzr.Text := dm_epm.adoqry_plan.fieldbyname('Jffzr').AsString;
     FillInJffzr;
+
   //  cb_sgtype.Text:=dm_epm.adoqry_plan.fieldbyname('sglb').AsString;
     Et_jhkgrq.Text:=dm_epm.adoqry_plan.fieldbyname('jhkgrq').AsString;
     Et_jhjgrq.Text:=dm_epm.adoqry_plan.fieldbyname('jhjgrq').AsString;
@@ -107,11 +132,15 @@ begin
     edt_prepayment.Text :=   dm_epm.adoqry_plan.fieldbyname('prepayment').AsString;
     jlf.Text:= dm_epm.adoqry_plan.fieldbyname('jlfee').AsString;
     chf.Text :=   dm_epm.adoqry_plan.fieldbyname('chf').AsString;
-    jldw.Text :=   dm_epm.adoqry_plan.fieldbyname('jldw').AsString;
+    jldw.Text :=  dm_epm.adoqry_plan.fieldbyname('jldw').AsString;
+    chdw.Text := Dm_Epm.adoqry_plan.fieldbyname('chdw').AsString ;
+    FillCompanyName;
     if jldw.Text='' then
      jldw.ItemIndex := 0;
-    //if dm_epm.adoqry_plan.fieldbyname('chf').AsString<>'' then
+     if chdw.Text='' then
      chdw.ItemIndex := 0;
+//    //if dm_epm.adoqry_plan.fieldbyname('chf').AsString<>'' then
+//     chdw.ItemIndex := 0;
        
     if (dm_epm.adoqry_plan.fieldbyname('delaystart').AsString='') then
     begin

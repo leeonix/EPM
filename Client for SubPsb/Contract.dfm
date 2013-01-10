@@ -184,8 +184,7 @@ object Frm_Contract: TFrm_Contract
       ShowHint = False
       TabOrder = 0
       Items.Strings = (
-        #19978#28023#24605#21335#30005#21147#24314#35774#24037#31243#30417#29702#26377#38480#20844#21496
-        #19978#28023#24066#19996#30005#21147#24314#35774#24037#31243#21672#35810#30417#29702#26377#38480#20844#21496)
+        '')
     end
     object jlf: TEdit
       Left = 93
@@ -226,8 +225,6 @@ object Frm_Contract: TFrm_Contract
       ParentShowHint = False
       ShowHint = False
       TabOrder = 0
-      Items.Strings = (
-        #19978#28023#33559#24029#27979#32472#25216#26415#26377#38480#20844#21496)
     end
     object chf: TEdit
       Left = 93

@@ -95,7 +95,7 @@ end;
 
 function TFram_descontract.GetPrintParam:Boolean;
 var cSql:string;
-    zj,sjf ,xzj,bzj,dzj,gzj,xsjf,bsjf,dsjf,gsjf,tempsum,tempsjf :integer;
+    zj,sjf ,xzj,bzj,dzj,gzj,xsjf,bsjf,dsjf,gsjf,tempsum,tempsjf,singlesjf,Singlezj :integer;
 begin
 // 设置设计单位地址电话...
   csql := 'select Address,Postcode,Tel,Fax,Bankname,Bankaccount from corp where Name='''+ trim(stdw.Text)+'''';
@@ -111,6 +111,8 @@ begin
  zj :=0; sjf:=0;
  xzj := 0; bzj :=0; dzj:=0;gzj:=0;
  xsjf :=0;  bsjf:=0;dsjf :=0;gsjf:=0;
+
+
  while not ADOQuery1.Eof do
  begin
    if ADOQuery1.FieldByName('prjaccount').AsString<>Erpcode then
@@ -153,8 +155,17 @@ begin
        bzj := bzj + tempsum;
        bsjf := bsjf + tempsjf;
      end;
+   end  else
+   begin
+    singlesjf :=  ADOQuery1.FieldByName('sjf').AsInteger;
+    Singlezj :=   ADOQuery1.FieldByName('sumfee').AsInteger;
    end;
    ADOQuery1.Next;
+ end;
+ if (sjf=0) and (ADOQuery1.RecordCount>0) then
+ begin
+   sjf :=  singlesjf;
+   zj :=   Singlezj;
  end;
   xl_zj :=IntToStr(xzj);
   xl_sjf := IntToStr(xsjf);

@@ -14,6 +14,7 @@ type
     MyReport1: TMyReport;
     RzCheckGroup1: TRzCheckGroup;
     rzchckgrpoldcontract: TRzCheckGroup;
+    RzRadioGroup1: TRzRadioGroup;
     procedure BitBtn1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -67,22 +68,22 @@ begin
     screen.cursor:=crHourGlass;
    if  RzCheckGroup1.ItemChecked[0]  then  PrintContract(1);
    if  RzCheckGroup1.ItemChecked[1]  then  PrintContract(2);
-   if  RzCheckGroup1.ItemChecked[2]  then  PrintContract(3);
-   if  RzCheckGroup1.ItemChecked[3]  then  PrintDelayRep;
-   if  RzCheckGroup1.ItemChecked[4]  then  PrintKgbg(0);
-   if  RzCheckGroup1.ItemChecked[5]  then  PrintSafeRep ;
-   if  RzCheckGroup1.ItemChecked[6]  then  PrintLjxy;
-   if  RzCheckGroup1.ItemChecked[7]  then  PrintChContract;
-   if  RzCheckGroup1.ItemChecked[8]  then  PrintJlContract;
-   if  RzCheckGroup1.ItemChecked[9]  then  PrintLjxy_Jl;
+ //  if  RzCheckGroup1.ItemChecked[2]  then  PrintContract(3);
+   if  RzCheckGroup1.ItemChecked[2]  then  PrintDelayRep;
+   if  RzCheckGroup1.ItemChecked[3]  then  PrintKgbg(0);
+   if  RzCheckGroup1.ItemChecked[4]  then  PrintSafeRep ;
+   if  RzCheckGroup1.ItemChecked[5]  then  PrintLjxy;
+   if  RzCheckGroup1.ItemChecked[6]  then  PrintChContract;
+   if  RzCheckGroup1.ItemChecked[7]  then  PrintJlContract;
+   if  RzCheckGroup1.ItemChecked[8]  then  PrintLjxy_Jl;
    //增加选择合同模板2012-02-01的功能
-   if rzchckgrpoldcontract.ItemChecked[0] then  PrintContract(1,'2011');
-   if rzchckgrpoldcontract.ItemChecked[1] then  PrintContract(2,'2011');
-   if rzchckgrpoldcontract.ItemChecked[2] then  PrintContract(3,'2011');
+//   if rzchckgrpoldcontract.ItemChecked[0] then  PrintContract(1,'2011');
+//   if rzchckgrpoldcontract.ItemChecked[1] then  PrintContract(2,'2011');
+//   if rzchckgrpoldcontract.ItemChecked[2] then  PrintContract(3,'2011');
    screen.cursor:=crDefault;
 end;
 procedure TFrm_Selectcontract.FormCreate(Sender: TObject);
-var csql,sgdw :string;
+var csql,sgdw,jldw,chdw :string;
 begin
    if   frm_main.Lsv_Task.Visible then
     begin
@@ -99,40 +100,49 @@ begin
       FDesignBy := Ptaskinfo(Fram_TltBase.cxTLt_com.FocusedNode.Data)^.DesignBy;
     end;
     FP_sgdw    := Dm_Epm.adoqry_plan.fieldbyname('sgdw').AsString ;//2010-06 修改为一级合同主体单位
+    chdw :=   Dm_Epm.adoqry_plan.fieldbyname('chdw').AsString ;
+    jldw :=   Dm_Epm.adoqry_plan.fieldbyname('jldw').AsString  ;
     FPrintDate := Dm_Epm.adoqry_plan.fieldbyname('PrintDate').AsString ;
     FcontractNo:= dm_epm.adoqry_plan.fieldbyname('sghtbh').AsString;
     Fprepayment := dm_epm.adoqry_plan.fieldbyname('prepayment').AsString;
     FJffzr :=  Trim(dm_epm.adoqry_plan.fieldbyname('Jffzr').AsString);
-    if trim(dm_epm.adoqry_plan.fieldbyname('jldw').AsString) ='上海思南电力建设工程监理有限公司' then
-    begin
-      FJLdwAddress :='莘西路225号';
-       FJLdwTel := '64921437';
-       FJLdwPostCode := '201100';
-    end
-    else begin
-      FJLdwAddress :='浦东新区华夏西路1001号';
-       FJLdwTel := '68898783';
-       FJLdwPostCode := '';
-    end; 
+//    if trim(dm_epm.adoqry_plan.fieldbyname('jldw').AsString) ='上海思南电力建设工程监理有限公司' then
+//    begin
+//       FJLdwAddress :='莘西路225号';
+//       FJLdwTel := '64921437';
+//       FJLdwPostCode := '201100';
+//    end
+//    else begin
+//       FJLdwAddress :='浦东新区华夏西路1001号';
+//       FJLdwTel := '68898783';
+//       FJLdwPostCode := '';
+//    end;
     csql := 'select address,XfRate from corp where  name= '''+FP_sgdw+'''';
     QryWork(Dm_Epm.adoqry_pub,csql);
     FAddress := Dm_Epm.adoqry_pub.FieldByName('address').AsString;
     FXfRate :=  trim(Dm_Epm.adoqry_pub.FieldByName('XfRate').AsString);
+
+    csql := 'select address,Tel,Postcode from corp where  name= '''+jldw+'''';
+    QryWork(Dm_Epm.adoqry_pub,csql);
+    FJLdwAddress := Dm_Epm.adoqry_pub.FieldByName('address').AsString;
+    FJLdwTel :=  Dm_Epm.adoqry_pub.FieldByName('Tel').AsString;
+    FJLdwPostCode := Dm_Epm.adoqry_pub.FieldByName('Postcode').AsString;
+
     csql := 'select prjadd from projectinfo where  prjcode= '''+Ptaskinfo(frm_main.Lsv_Task.Selected.Data)^.PrjDm+'''';
     QryWork(Dm_Epm.adoqry_pub,csql);
     FprjAddress := Dm_Epm.adoqry_pub.FieldByName('prjadd').AsString;
     Printstrings := TstringList.Create;
      //默认的要打印的合同类型
     RzCheckGroup1.ItemChecked[0]:= true;
+    RzCheckGroup1.ItemChecked[3]:= true;
     RzCheckGroup1.ItemChecked[4]:= true;
     RzCheckGroup1.ItemChecked[5]:= true;
-    RzCheckGroup1.ItemChecked[6]:= true;
     if dm_epm.adoqry_plan.fieldbyname('chhtbh').AsString<>'' then
-    RzCheckGroup1.ItemChecked[7]:= true;
+    RzCheckGroup1.ItemChecked[6]:= true;
     if dm_epm.adoqry_plan.fieldbyname('jlhtbh').AsString<>'' then
     begin
-      RzCheckGroup1.ItemChecked[8]:= true;
-       RzCheckGroup1.ItemChecked[9]:= true;
+      RzCheckGroup1.ItemChecked[7]:= true;
+       RzCheckGroup1.ItemChecked[8]:= true;
     end;
 
 end;
@@ -150,6 +160,8 @@ begin
    PrintStrings.Add(FP_sgdw);
    PrintStrings.Add(FAddress);
    PrintStrings.Add(FPrintDate);
+    if RzRadioGroup1.ItemIndex=0 then     Printstrings.Add('施工总承包')
+   else      Printstrings.Add('专业承包');
   end;
    MyReport1.templatefilename:='safexy';
    MyReport1.execute('',PrintStrings);
@@ -171,7 +183,8 @@ begin
       PrintStrings.Add('暂估');
      end
      else
-     PrintStrings.Add(Money2ChineseCapital2(fieldbyname('htje').AsFloat));
+    // PrintStrings.Add(Money2ChineseCapital2(fieldbyname('htje').AsFloat));
+     PrintStrings.Add(Money2ChineseCapital2(fieldbyname('htje').AsFloat)+'(￥'+fieldbyname('htje').AsString+'元)');
    // PrintStrings.Add(RMB(fieldbyname('jlf').AsFloat));
      PrintStrings.Add(fieldbyname('jhkgrq').AsString);
      PrintStrings.Add(fieldbyname('jhjgrq').AsString);
@@ -215,7 +228,11 @@ begin
     MyReport1.templatefilename:=  MyReport1.templatefilename + TemplateTag;
    PrintStrings.Add(Loginuser);    // 经办人
    PrintStrings.Add(FJffzr);   //甲方负责人
+   if RzRadioGroup1.ItemIndex=0 then     Printstrings.Add('总承包')
+   else      Printstrings.Add('专业承包');
 
+
+          // 总承包或者专业承包方式
    MyReport1.execute('',PrintStrings);
 end;
 
@@ -297,7 +314,7 @@ begin
    PrintStrings.Add(Fprjname);     //工程名称
    PrintStrings.Add(Fprjaccount);    //工程账号
    PrintStrings.Add(FprjAddress);    //工程地点
-   PrintStrings.Add(Money2ChineseCapital2(fieldbyname('jlfee').AsFloat));   //监理费
+   PrintStrings.Add(Money2ChineseCapital2(fieldbyname('jlfee').AsFloat)+'('+fieldbyname('chf').AsString+'元)');   //监理费
    PrintStrings.Add(FJLdwAddress); // 乙方地址信息
    PrintStrings.Add(FJLdwPostCode); //邮编
    PrintStrings.Add(FJLdwTel); // 电话
@@ -338,6 +355,7 @@ begin
    PrintStrings.Add(FP_sgdw);    //总包单位
    PrintStrings.Add(Money2ChineseCapital2(fieldbyname('chf').AsFloat)+'('+fieldbyname('chf').AsString+'元)');   //测绘费
    PrintStrings.Add(FPrintDate);
+   PrintStrings.Add(trim(fieldbyname('chdw').AsString));      // 测绘合同乙方单位
   // PrintStrings.Add(Loginuser);   // 经办人
   end;
    MyReport1.templatefilename:='chht';

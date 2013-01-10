@@ -202,7 +202,7 @@ object Fram_descontract: TFram_descontract
     CursorType = ctStatic
     Parameters = <>
     Left = 504
-    Top = 160
+    Top = 176
     object ADOQuery1PRJACCOUNT: TStringField
       DisplayLabel = #24037#31243#20998#36134#21495
       DisplayWidth = 17
@@ -229,8 +229,8 @@ object Fram_descontract: TFram_descontract
   end
   object DataSource1: TDataSource
     DataSet = ADOQuery1
-    Left = 472
-    Top = 160
+    Left = 464
+    Top = 176
   end
   object MyReport1: TMyReport
     Reporttitle = #19978#28023#26216#36745#31185#25216'Excel'#36755#20986

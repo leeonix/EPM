@@ -99,6 +99,7 @@ begin
         adoqry_plan.FieldByName('delayend').AsString:=trim(frm_contract.delayend.Text);
         // 增加监理费，测绘费，监理单位等信息 2011-10-12
         adoqry_plan.FieldByName('jldw').AsString:=trim(frm_contract.Jldw.Text);        //
+         adoqry_plan.FieldByName('chdw').AsString:=trim(frm_contract.chdw.Text);        //
         adoqry_plan.FieldByName('prepayment').AsString := trim(Frm_Contract.edt_prepayment.Text);
         //增加按照新颁布的合同编号规则生成监理合同，测绘合同编号等...
         sghtbh := trim(adoqry_plan.FieldByName('sghtbh').AsString);

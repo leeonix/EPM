@@ -188,6 +188,18 @@ object Fram_Execontract: TFram_Execontract
         Expanded = False
         FieldName = 'DelayEnd'
         Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Sjf'
+        Title.Caption = #35774#35745#36153
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'chdw'
+        Title.Caption = #27979#32472#21333#20301
+        Visible = True
       end>
   end
   object PopupMenu1: TPopupMenu

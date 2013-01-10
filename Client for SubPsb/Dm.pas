@@ -144,6 +144,7 @@ type
     adoqry_planSjf: TStringField;
     adoqry_planaqglbh: TStringField;
     adoqry_planJffzr: TWideStringField;
+    adoqry_planchdw: TStringField;
     procedure DataModuleCreate(Sender: TObject);
     procedure ADOQry_docAfterInsert(DataSet: TDataSet);
     procedure ADOQry_docCalcFields(DataSet: TDataSet); 
@@ -166,6 +167,8 @@ type
      {日期型字段输入判断函数,在OnSetText事件中调用}
     // function DateFieldSetText(Sender: TField;const Text: String):Boolean;
      function  Wtdesign(const PrjCode,Nodecode,designby:string):Boolean;
+
+      function Getcode():string ;
 
   end;
   {*****************Static function and procedure*******************************}
@@ -492,6 +495,16 @@ begin
 end;
 
 //获得新建项目记录的流水号
+function TDm_Epm.Getcode: string;
+var csql :string;
+    Max_no :string;
+begin
+   csql:='Select  Max(cast(Code as int)) as maxno from Corp';
+   QryWork(ADOQRY_PUB,CSQL);
+   Max_no:=Trim(ADOQRY_PUB.fieldbyname('maxno').AsString);
+   Result := InttoStr(strtoint(Max_No)+1);
+end;
+
 function TDm_Epm.GetnewitemNo(const ctype:string):String;
 var max_no,ctemp,csql:string;
 begin

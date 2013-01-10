@@ -11,8 +11,8 @@ object Dm_Epm: TDm_Epm
     ConnectionTimeout = 30
     LoginPrompt = False
     Provider = 'SQLOLEDB.1'
-    Left = 80
-    Top = 8
+    Left = 16
+    Top = 16
   end
   object adoqry_pub: TADOQuery
     Connection = cn_epm
@@ -277,6 +277,10 @@ object Dm_Epm: TDm_Epm
       FieldName = 'Jffzr'
       FixedChar = True
       Size = 10
+    end
+    object adoqry_planchdw: TStringField
+      FieldName = 'chdw'
+      Size = 60
     end
   end
   object ds_plan: TDataSource

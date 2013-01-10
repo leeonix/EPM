@@ -143,6 +143,8 @@ begin
     Result := true;
 end;
 
+
+// 写入设计合同记录，Erp编码，设计单位，工程账号从excel表格中导入
 function Tfrm_importbudget.UpdateDesignContract(erpcode, sjdw,prjacc:string): boolean;
 var csql, cInsertSql,cUPdateSql,prjname,prjtype:string;
 var standardstr: string;

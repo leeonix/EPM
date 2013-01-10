@@ -346,6 +346,15 @@
 			<DCCReference Include="JsReport.pas">
 				<Form>frm_jsreport</Form>
 			</DCCReference>
+			<DCCReference Include="frm_designcompany.pas">
+				<Form>frm_sjdw</Form>
+			</DCCReference>
+			<DCCReference Include="Chdw.pas">
+				<Form>frm_chdw</Form>
+			</DCCReference>
+			<DCCReference Include="jldw.pas">
+				<Form>frm_jldw</Form>
+			</DCCReference>
 			<None Include="EPM.todo"/>
 			<BuildConfiguration Include="Base">
 				<Key>Base</Key>

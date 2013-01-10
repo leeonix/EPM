@@ -4,8 +4,8 @@ object Frm_Selectcontract: TFrm_Selectcontract
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = #36873#25321#25171#21360#25991#20214
-  ClientHeight = 245
-  ClientWidth = 551
+  ClientHeight = 293
+  ClientWidth = 363
   Color = clBtnFace
   Font.Charset = ANSI_CHARSET
   Font.Color = clWindowText
@@ -20,8 +20,8 @@ object Frm_Selectcontract: TFrm_Selectcontract
   PixelsPerInch = 96
   TextHeight = 14
   object BitBtn1: TBitBtn
-    Left = 328
-    Top = 209
+    Left = 187
+    Top = 257
     Width = 70
     Height = 28
     Caption = #30830#23450
@@ -50,8 +50,8 @@ object Frm_Selectcontract: TFrm_Selectcontract
     OnClick = BitBtn1Click
   end
   object BitBtn2: TBitBtn
-    Left = 419
-    Top = 209
+    Left = 279
+    Top = 257
     Width = 70
     Height = 28
     Caption = #21462#28040
@@ -63,7 +63,7 @@ object Frm_Selectcontract: TFrm_Selectcontract
   object RzCheckGroup1: TRzCheckGroup
     Left = 8
     Top = 8
-    Width = 305
+    Width = 314
     Height = 177
     Caption = #35831#36873#25321#35201#25171#21360#30340#21512#21516
     Columns = 2
@@ -71,7 +71,6 @@ object Frm_Selectcontract: TFrm_Selectcontract
     Items.Strings = (
       #26045#24037#21512#21516
       #26045#24037#21512#21516'('#39044#20184#27454')'
-      #26045#24037#21512#21516'('#24418#35937#36827#24230')'
       #24310#26399#21512#21516
       #24320#24037#25253#21578#21333
       #23433#20840#31649#29702#21327#35758
@@ -81,7 +80,6 @@ object Frm_Selectcontract: TFrm_Selectcontract
       #24265#27905#21327#35758'('#30417#29702')')
     TabOrder = 2
     CheckStates = (
-      0
       0
       0
       0
@@ -104,16 +102,33 @@ object Frm_Selectcontract: TFrm_Selectcontract
       #26045#24037#21512#21516'('#39044#20184#27454')'
       #26045#24037#21512#21516'('#24418#35937#36827#24230')')
     TabOrder = 3
+    Visible = False
     CheckStates = (
       0
       0
       0)
   end
+  object RzRadioGroup1: TRzRadioGroup
+    Left = 14
+    Top = 198
+    Width = 529
+    Height = 50
+    Margins.Left = 10
+    Margins.Top = 10
+    Caption = #35831#36873#25321#26045#24037#21512#21516#25215#21253#26041#24335
+    Columns = 2
+    ItemIndex = 0
+    Items.Strings = (
+      #24635#25215#21253#21512#21516
+      #19987#19994#25215#21253#21512#21516)
+    TabOrder = 4
+    VerticalSpacing = 5
+  end
   object MyReport1: TMyReport
     Reporttitle = 'Excel'#36755#20986
     prefixchar = '@'
     reporttype = rtcard
-    Left = 38
-    Top = 193
+    Left = 510
+    Top = 257
   end
 end

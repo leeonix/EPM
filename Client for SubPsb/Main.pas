@@ -200,6 +200,9 @@ type
     N74: TMenuItem;
     N76: TMenuItem;
     N75: TMenuItem;
+    N77: TMenuItem;
+    N78: TMenuItem;
+    N79: TMenuItem;
     procedure Tbr_NavgitorResize(Sender: TObject);
     procedure tbtnnavClick(Sender: TObject);
     procedure quitExecute(Sender: TObject);
@@ -267,6 +270,9 @@ type
     procedure N73Click(Sender: TObject);
     procedure N74Click(Sender: TObject);
     procedure N76Click(Sender: TObject);
+    procedure N77Click(Sender: TObject);
+    procedure N78Click(Sender: TObject);
+    procedure N79Click(Sender: TObject);
 
   private
     { Private declarations }
@@ -301,8 +307,8 @@ var
 
 implementation
 
-uses NewItem,Flowcontrol,ReportManag,Prj_Design, Search, setpwd, frm_sgdw, Setparam,
-     Sumcondition,Udelayprj,DelayContract, UfrmGetfee, tasktree, DB,Login, Sjimport,Gspfimport,
+uses NewItem,Flowcontrol,ReportManag,Prj_Design, Search, setpwd, frm_sgdw, Setparam,  frm_designcompany, Chdw,
+     Sumcondition,Udelayprj,DelayContract, UfrmGetfee, tasktree, DB,Login, Sjimport,Gspfimport, jldw,
      importbudget, frm_exportcontractlist,importwtdesign,JsReport;
 
 {$R *.DFM}
@@ -1297,6 +1303,38 @@ begin
     frm_jsreport.ShowModal;
   finally
     frm_jsreport.Free;
+  end;
+end;
+
+// 设计单位维护
+procedure TFrm_Main.N77Click(Sender: TObject);
+begin
+  application.CreateForm(Tfrm_sjdw,frm_sjdw);
+  try
+    frm_sjdw.ShowModal;
+  finally
+    frm_sjdw.Free;
+  end;
+end;
+
+// 测绘单位维护
+procedure TFrm_Main.N78Click(Sender: TObject);
+begin
+ application.CreateForm(Tfrm_chdw,frm_chdw);
+  try
+    frm_chdw.ShowModal;
+  finally
+    frm_chdw.Free;
+  end;
+end;
+
+procedure TFrm_Main.N79Click(Sender: TObject);
+begin
+     application.CreateForm(Tfrm_jldw,frm_jldw);
+  try
+    frm_jldw.ShowModal;
+  finally
+    frm_jldw.Free;
   end;
 end;
 
