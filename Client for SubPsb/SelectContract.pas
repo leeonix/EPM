@@ -314,7 +314,7 @@ begin
    PrintStrings.Add(Fprjname);     //工程名称
    PrintStrings.Add(Fprjaccount);    //工程账号
    PrintStrings.Add(FprjAddress);    //工程地点
-   PrintStrings.Add(Money2ChineseCapital2(fieldbyname('jlfee').AsFloat)+'('+fieldbyname('chf').AsString+'元)');   //监理费
+   PrintStrings.Add(Money2ChineseCapital2(fieldbyname('jlfee').AsFloat)+'('+fieldbyname('jlfee').AsString+'元)');   //监理费
    PrintStrings.Add(FJLdwAddress); // 乙方地址信息
    PrintStrings.Add(FJLdwPostCode); //邮编
    PrintStrings.Add(FJLdwTel); // 电话
