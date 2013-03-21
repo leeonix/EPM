@@ -52,8 +52,10 @@ object frm_contractlist: Tfrm_contractlist
     Width = 70
     Height = 28
     Caption = #36864#20986
-    TabOrder = 2
+    DoubleBuffered = True
     Kind = bkCancel
+    ParentDoubleBuffered = False
+    TabOrder = 2
   end
   object BitBtn1: TBitBtn
     Left = 268
@@ -62,8 +64,7 @@ object frm_contractlist: Tfrm_contractlist
     Height = 28
     Caption = #23548#20986#21040'excel'
     Default = True
-    TabOrder = 3
-    OnClick = BitBtn1Click
+    DoubleBuffered = True
     Glyph.Data = {
       DE010000424DDE01000000000000760000002800000024000000120000000100
       0400000000006801000000000000000000001000000000000000000000000000
@@ -82,6 +83,9 @@ object frm_contractlist: Tfrm_contractlist
       333A333333333333333338330000333333333333333333333333333333333333
       0000}
     NumGlyphs = 2
+    ParentDoubleBuffered = False
+    TabOrder = 3
+    OnClick = BitBtn1Click
   end
   object RzCheckGroup1: TRzCheckGroup
     Left = 8

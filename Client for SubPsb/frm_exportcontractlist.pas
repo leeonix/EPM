@@ -55,7 +55,7 @@ begin
    end;
    if RzCheckGroup1.ItemChecked[1] then
    begin
-     cSql:='select  TypeName, PRJACCOUNT,PrjName, chhtbh,''张峰'' as cbr,''上海茗川测绘技术有限公司'' as chdw,PrintDate,chf from ARRANGE a';
+     cSql:='select  TypeName, PRJACCOUNT,PrjName, chhtbh,''张峰'' as cbr, chdw,PrintDate,chf from ARRANGE a';
      orderby :='chhtbh';
      whereby := ' and chhtbh<>''''';
      excelrep.templatefilename:='chcontractlist';

@@ -85,20 +85,21 @@ uses
 begin
   Application.Initialize;
   Application.Title := 'Easy Project';
-  if Date>StrToDate('2013-03-15') then
-  begin
-    // ShowMessage('com+组件证书失效，请访问windows update更新组件');
-     Application.Terminate;
-  end;
+
   Application.CreateForm(TFrm_Main, Frm_Main);
   //Frm_Main.WebUpdateWizard1.Execute;
   Application.CreateForm(TDm_Epm, Dm_Epm);
-    Application.CreateForm(TFrm_Login, Frm_Login);
+  Application.CreateForm(TFrm_Login, Frm_Login);
     if frm_Login.ShowModal=mrcancel then
     begin
       Frm_main.free;
       Application.Terminate;
     end;
+  if Date>StrToDate('2013-07-01') then
+  begin
+    ShowMessage('Autovue license is invalid ,Plese check the newest license policy');
+     Application.Terminate;
+  end;
 
   //Application.CreateForm(Tfrm_Delayprj,frm_Delayprj);
   Application.CreateForm(Tfrm_DelayContract,frm_DelayContract);
