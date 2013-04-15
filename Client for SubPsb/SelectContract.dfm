@@ -4,8 +4,8 @@ object Frm_Selectcontract: TFrm_Selectcontract
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = #36873#25321#25171#21360#25991#20214
-  ClientHeight = 293
-  ClientWidth = 363
+  ClientHeight = 299
+  ClientWidth = 453
   Color = clBtnFace
   Font.Charset = ANSI_CHARSET
   Font.Color = clWindowText
@@ -20,8 +20,8 @@ object Frm_Selectcontract: TFrm_Selectcontract
   PixelsPerInch = 96
   TextHeight = 14
   object BitBtn1: TBitBtn
-    Left = 187
-    Top = 257
+    Left = 198
+    Top = 247
     Width = 70
     Height = 28
     Caption = #30830#23450
@@ -50,8 +50,8 @@ object Frm_Selectcontract: TFrm_Selectcontract
     OnClick = BitBtn1Click
   end
   object BitBtn2: TBitBtn
-    Left = 279
-    Top = 257
+    Left = 339
+    Top = 247
     Width = 70
     Height = 28
     Caption = #21462#28040
@@ -63,16 +63,13 @@ object Frm_Selectcontract: TFrm_Selectcontract
   object RzCheckGroup1: TRzCheckGroup
     Left = 8
     Top = 8
-    Width = 314
-    Height = 177
+    Width = 177
+    Height = 233
     Caption = #35831#36873#25321#35201#25171#21360#30340#21512#21516
-    Columns = 2
     ItemHeight = 29
     Items.Strings = (
       #26045#24037#21512#21516
-      #26045#24037#21512#21516'('#39044#20184#27454')'
       #24310#26399#21512#21516
-      #24320#24037#25253#21578#21333
       #23433#20840#31649#29702#21327#35758
       #24265#27905#21327#35758'('#26045#24037')'
       #27979#32472#21512#21516
@@ -86,12 +83,10 @@ object Frm_Selectcontract: TFrm_Selectcontract
       0
       0
       0
-      0
-      0
       0)
   end
   object rzchckgrpoldcontract: TRzCheckGroup
-    Left = 328
+    Left = 621
     Top = 8
     Width = 209
     Height = 177
@@ -109,9 +104,9 @@ object Frm_Selectcontract: TFrm_Selectcontract
       0)
   end
   object RzRadioGroup1: TRzRadioGroup
-    Left = 14
-    Top = 198
-    Width = 529
+    Left = 198
+    Top = 8
+    Width = 227
     Height = 50
     Margins.Left = 10
     Margins.Top = 10
@@ -124,11 +119,59 @@ object Frm_Selectcontract: TFrm_Selectcontract
     TabOrder = 4
     VerticalSpacing = 5
   end
+  object RzRadioGroup2: TRzRadioGroup
+    Left = 198
+    Top = 71
+    Width = 227
+    Height = 50
+    Margins.Left = 10
+    Margins.Top = 10
+    Caption = #26045#24037#26159#21542#25307#25237#26631
+    Columns = 2
+    ItemIndex = 0
+    Items.Strings = (
+      #38750#25307#26631#21512#21516
+      #25307#26631#21512#21516)
+    TabOrder = 5
+    VerticalSpacing = 5
+  end
+  object RzRadioGroup3: TRzRadioGroup
+    Left = 198
+    Top = 128
+    Width = 227
+    Height = 50
+    Margins.Left = 10
+    Margins.Top = 10
+    Caption = #21512#21516#29256#26412
+    Columns = 2
+    ItemIndex = 0
+    Items.Strings = (
+      #22269#32593#29256#26412
+      #24066#21335'2012'#29256#26412)
+    TabOrder = 6
+    VerticalSpacing = 5
+  end
+  object RzRadioGroup4: TRzRadioGroup
+    Left = 198
+    Top = 191
+    Width = 227
+    Height = 50
+    Margins.Left = 10
+    Margins.Top = 10
+    Caption = #39044#20184#27454#26041#24335
+    Columns = 2
+    ItemIndex = 0
+    Items.Strings = (
+      #26080#39044#20184#27454
+      #39044#20184#27454#21512#21516)
+    TabOrder = 7
+    VerticalSpacing = 5
+  end
   object MyReport1: TMyReport
     Reporttitle = 'Excel'#36755#20986
     prefixchar = '@'
     reporttype = rtcard
-    Left = 510
-    Top = 257
+    Left = 390
+    Top = 250
   end
 end

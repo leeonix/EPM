@@ -15,6 +15,9 @@ type
     RzCheckGroup1: TRzCheckGroup;
     rzchckgrpoldcontract: TRzCheckGroup;
     RzRadioGroup1: TRzRadioGroup;
+    RzRadioGroup2: TRzRadioGroup;
+    RzRadioGroup3: TRzRadioGroup;
+    RzRadioGroup4: TRzRadioGroup;
     procedure BitBtn1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -38,6 +41,7 @@ type
     FJLdwTel,FJffzr :string;
     Printstrings:TstringList;
     function PrintContract(Typetag: Integer=1;TemplateTag:string=''):Boolean;
+    function PrintContractState():Boolean;
     function PrintKgbg(Typetag:Integer=1): Boolean;
     function PrintSafeRep():Boolean;
     function PrintLjxy():Boolean;
@@ -66,16 +70,19 @@ var
   I: Integer;
 begin
     screen.cursor:=crHourGlass;
-   if  RzCheckGroup1.ItemChecked[0]  then  PrintContract(1);
-   if  RzCheckGroup1.ItemChecked[1]  then  PrintContract(2);
+   if  RzCheckGroup1.ItemChecked[0]  then
+   begin
+     if RzRadioGroup3.ItemIndex=0 then  PrintContractState   else    PrintContract(1);
+   end;
+  // if  RzCheckGroup1.ItemChecked[1]  then  PrintContract(2);
  //  if  RzCheckGroup1.ItemChecked[2]  then  PrintContract(3);
-   if  RzCheckGroup1.ItemChecked[2]  then  PrintDelayRep;
-   if  RzCheckGroup1.ItemChecked[3]  then  PrintKgbg(0);
-   if  RzCheckGroup1.ItemChecked[4]  then  PrintSafeRep ;
-   if  RzCheckGroup1.ItemChecked[5]  then  PrintLjxy;
-   if  RzCheckGroup1.ItemChecked[6]  then  PrintChContract;
-   if  RzCheckGroup1.ItemChecked[7]  then  PrintJlContract;
-   if  RzCheckGroup1.ItemChecked[8]  then  PrintLjxy_Jl;
+   if  RzCheckGroup1.ItemChecked[1]  then  PrintDelayRep;
+   //if  RzCheckGroup1.ItemChecked[3]  then  PrintKgbg(0);      开工报告取消 2013年4月15日
+   if  RzCheckGroup1.ItemChecked[2]  then  PrintSafeRep ;
+   if  RzCheckGroup1.ItemChecked[3]  then  PrintLjxy;
+   if  RzCheckGroup1.ItemChecked[4]  then  PrintChContract;
+   if  RzCheckGroup1.ItemChecked[5]  then  PrintJlContract;
+   if  RzCheckGroup1.ItemChecked[6]  then  PrintLjxy_Jl;
    //增加选择合同模板2012-02-01的功能
 //   if rzchckgrpoldcontract.ItemChecked[0] then  PrintContract(1,'2011');
 //   if rzchckgrpoldcontract.ItemChecked[1] then  PrintContract(2,'2011');
@@ -231,8 +238,52 @@ begin
    if RzRadioGroup1.ItemIndex=0 then     Printstrings.Add('总承包')
    else      Printstrings.Add('专业承包');
 
-
           // 总承包或者专业承包方式
+   MyReport1.execute('',PrintStrings);
+end;
+
+function TFrm_Selectcontract.PrintContractState: Boolean;
+begin
+   with dm_epm.adoqry_plan do
+   begin
+     PrintStrings.Clear;
+     PrintStrings.Add(Fprjname);
+     PrintStrings.Add(FcontractNo);
+     PrintStrings.Add(Fprjname);
+     PrintStrings.Add(FP_sgdw);
+     PrintStrings.Add(FPrintDate);
+     PrintStrings.Add(Fprjname);
+     PrintStrings.Add(FP_sgdw);
+     PrintStrings.Add(Fprjname);
+     PrintStrings.Add(Fprjname);
+     PrintStrings.Add(Fprjaccount);
+     PrintStrings.Add(FprjAddress);
+     if RzRadioGroup1.ItemIndex=0 then   Printstrings.Add('(1)')  else      Printstrings.Add('(2)');
+     PrintStrings.Add(FPrintDate);
+     PrintStrings.Add(fieldbyname('htje').AsString+'元(大写:'+Money2ChineseCapital2(fieldbyname('htje').AsFloat)+'元)');
+     PrintStrings.Add(Money2ChineseCapital2(fieldbyname('jlf').AsFloat));
+     if RzRadioGroup4.ItemIndex=0 then   Printstrings.Add('(1)')  else      Printstrings.Add('(2)');
+     PrintStrings.Add(FJffzr);
+     PrintStrings.Add(trim(fieldbyname('jldw').AsString));
+     PrintStrings.Add('/');   //监理工程师
+     PrintStrings.Add(FP_sgdw);
+     PrintStrings.Add(FPrintDate);
+     PrintStrings.Add(Loginuser);
+      PrintStrings.Add(FPrintDate);
+     PrintStrings.Add(FAddress);
+     PrintStrings.Add('');  //邮编
+     PrintStrings.Add('');  //
+     PrintStrings.Add('');  //
+     PrintStrings.Add('');  //邮编
+     PrintStrings.Add('');  //
+     PrintStrings.Add('');  //
+     if  FXfRate<>'' then
+     PrintStrings.Add('6.1.4 其他：在结算总价审价后的基础上，按照中标结算下浮率下浮'+FXfRate+'作为最终结算价 。')
+     else       PrintStrings.Add('');
+   end;
+   if RzRadioGroup2.ItemIndex=0 then MyReport1.templatefilename:='工程施工合同(非招标)'
+     else MyReport1.templatefilename:='工程施工合同(招标)' ;
+
    MyReport1.execute('',PrintStrings);
 end;
 
@@ -280,8 +331,6 @@ begin
    MyReport1.templatefilename:='ljxy';
    MyReport1.execute('',PrintStrings);
 end;
-
-
 
 // 打印延期合同
 function TFrm_Selectcontract.PrintDelayRep: Boolean;
