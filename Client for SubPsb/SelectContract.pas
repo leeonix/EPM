@@ -41,6 +41,10 @@ type
     FFax:string;
     FBank:string;
     FBankAccount:string;
+    DelayContent:string;
+    QualityContent:string;
+
+
     FJLdwAddress :string;
     FJLdwPostCode :string;
     FJldwBank,FJldwBankAccount:string;
@@ -140,7 +144,7 @@ begin
     Fprepayment := dm_epm.adoqry_plan.fieldbyname('prepayment').AsString;
     FJffzr :=  Trim(dm_epm.adoqry_plan.fieldbyname('Jffzr').AsString);
 
-    csql := 'select address,XfRate,Tel,Postcode,Fax,Bankname,Bankaccount from corp where  name= '''+FP_sgdw+'''';
+    csql := 'select address,XfRate,Tel,Postcode,Fax,Bankname,Bankaccount,DelayContent,QualityContent from corp where  name= '''+FP_sgdw+'''';
     QryWork(Dm_Epm.adoqry_pub,csql);
     FAddress := Dm_Epm.adoqry_pub.FieldByName('address').AsString;
     FXfRate :=  trim(Dm_Epm.adoqry_pub.FieldByName('XfRate').AsString);
@@ -148,6 +152,8 @@ begin
     FFax:=  trim(Dm_Epm.adoqry_pub.FieldByName('Fax').AsString);
     FBank:=  trim(Dm_Epm.adoqry_pub.FieldByName('Bankname').AsString);
     FBankAccount:=  trim(Dm_Epm.adoqry_pub.FieldByName('Bankaccount').AsString);
+    QualityContent:= trim(Dm_Epm.adoqry_pub.FieldByName('QualityContent').AsString);
+    DelayContent :=    trim(Dm_Epm.adoqry_pub.FieldByName('DelayContent').AsString);
     csql := 'select address,Tel,Postcode,Fax,Bankname, Bankaccount,Contactor from corp where  name= '''+jldw+'''';
     QryWork(Dm_Epm.adoqry_pub,csql);
     FJLdwAddress := Dm_Epm.adoqry_pub.FieldByName('address').AsString;
@@ -286,6 +292,7 @@ begin
 end;
 
 function TFrm_Selectcontract.PrintContractState: Boolean;
+
 begin
    with dm_epm.adoqry_plan do
    begin
@@ -307,8 +314,16 @@ begin
      PrintStrings.Add(Money2ChineseCapital2(fieldbyname('jlf').AsFloat));
      if RzRadioGroup4.ItemIndex=0 then   Printstrings.Add('(1)')  else      Printstrings.Add('(2)');
      PrintStrings.Add(FJffzr);
-     PrintStrings.Add(trim(fieldbyname('jldw').AsString));
-     PrintStrings.Add(FJlengineer);   //监理工程师
+     if StrToInt(fieldbyname('jlfee').AsString)>0 then
+     begin
+        PrintStrings.Add(trim(fieldbyname('jldw').AsString));
+         PrintStrings.Add(FJlengineer);   //监理工程师
+     end else begin
+         PrintStrings.Add('/');
+         PrintStrings.Add('/');   //监理工程师
+     end;
+
+
      PrintStrings.Add(FP_sgdw);
      PrintStrings.Add(FPrintDate);
      PrintStrings.Add(Loginuser);
@@ -321,8 +336,10 @@ begin
      PrintStrings.Add(FBankAccount);  //    账号
      PrintStrings.Add('');  //   税号
      if  FXfRate<>'' then
-     PrintStrings.Add('6.1.4 其他：在结算总价审价后的基础上，按照中标结算下浮率下浮'+FXfRate+'作为最终结算价 。')
+     PrintStrings.Add('6.1.4 其他：在结算总价审价后的基础上，按照中标结算下浮率下浮'+FXfRate+'%作为最终结算价 。')
      else       PrintStrings.Add('');
+     PrintStrings.Add(DelayContent);
+     PrintStrings.Add(QualityContent);
    end;
    MyReport1.templatefilename:='工程施工合同(非招标)'  ;
    MyReport1.execute('',PrintStrings);
@@ -553,12 +570,13 @@ end;
 
 //打印测绘合同
 function TFrm_Selectcontract.PrintChContract: Boolean;
-
+var htbh:string;
 begin
   with dm_epm.adoqry_plan do
   begin
+   htbh := trim(fieldbyname('chhtbh').AsString);
    PrintStrings.Clear;
-   PrintStrings.Add(trim(fieldbyname('chhtbh').AsString));   // 测绘合同编号
+   PrintStrings.Add(htbh);   // 测绘合同编号
    //PrintStrings.Add(trim(fieldbyname('chdw').AsString));      // 测绘合同乙方单位
    PrintStrings.Add(Fprjname);     //工程名称
    PrintStrings.Add(Fprjaccount);    //工程账号
@@ -578,7 +596,7 @@ begin
     PrintStrings.Add(FChdwFax);
     PrintStrings.Add(FChdwBank);
     PrintStrings.Add(FChdwBankAccount);
-    PrintStrings.Add(trim(dm_epm.adoqry_plan.fieldbyname('chhtbh').AsString));
+
     PrintStrings.Add(Fprjname);
      PrintStrings.Add(trim(dm_epm.adoqry_plan.fieldbyname('chdw').AsString));
     PrintStrings.Add(FPrintDate);

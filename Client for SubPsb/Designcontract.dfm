@@ -102,19 +102,8 @@ object Fram_descontract: TFram_descontract
       Top = 79
       Width = 192
       Height = 22
-      Enabled = False
       ImeName = #20013#25991'('#31616#20307') - '#25628#29399#25340#38899#36755#20837#27861
       TabOrder = 1
-    end
-    object qdrq: TDateTimePicker
-      Left = 105
-      Top = 51
-      Width = 192
-      Height = 22
-      Date = 41100.496904930560000000
-      Time = 41100.496904930560000000
-      ImeName = #20013#25991' ('#31616#20307') - '#25628#29399#25340#38899#36755#20837#27861
-      TabOrder = 2
     end
     object htje: TEdit
       Left = 313
@@ -123,8 +112,17 @@ object Fram_descontract: TFram_descontract
       Height = 22
       Enabled = False
       ImeName = #20013#25991'('#31616#20307') - '#25628#29399#25340#38899#36755#20837#27861
-      TabOrder = 3
+      TabOrder = 2
       Visible = False
+    end
+    object qdrq: TRzDateTimeEdit
+      Left = 105
+      Top = 46
+      Width = 192
+      Height = 22
+      EditType = etDate
+      ImeName = #20013#25991'('#31616#20307') - '#25628#29399#25340#38899#36755#20837#27861
+      TabOrder = 3
     end
   end
   object gcnr: TRichEdit

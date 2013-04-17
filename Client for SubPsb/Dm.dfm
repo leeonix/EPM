@@ -7,7 +7,7 @@ object Dm_Epm: TDm_Epm
     CommandTimeout = 40
     ConnectionString = 
       'Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security In' +
-      'fo=False;Initial Catalog=epm;Data Source=SHAOBING-PC\SHAREPOINT;'
+      'fo=False;Initial Catalog=epm;Data Source=SHAOBING-LAPTOP;'
     ConnectionTimeout = 30
     LoginPrompt = False
     Provider = 'SQLOLEDB.1'

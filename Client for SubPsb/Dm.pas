@@ -14,7 +14,7 @@ unit Dm;
 interface
 
 uses
-  SysUtils,
+  SysUtils,  RzEdit,
   Classes,
   DB,
   ADODB,
@@ -474,13 +474,22 @@ begin
            Tlabelededit(sender.Components[I]).Text := VarToStr(FieldValues[sender.Components[I].Name])
         else if (sender.Components[I] is  Tcombobox) then
            TCombobox(sender.Components[I]).Text := VarToStr(FieldValues[sender.Components[I].Name])
+         else if (sender.Components[I] is TRzDateTimeEdit) then
+             begin
+                if not FieldByName(sender.Components[I].Name).IsNull then
+                TRzDateTimeEdit(sender.Components[I]).Date :=  VarToDateTime(FieldValues[sender.Components[I].Name])
+                //else    TRzDateTimeEdit(sender.Components[I]).Text :='';
+             end
+
         else if (sender.Components[I] is  Tdatetimepicker) then
         begin
           if FieldByName(sender.Components[I].Name).IsNull then
              Tdatetimepicker(sender.Components[I]).DateTime := DATE
           else
          Tdatetimepicker(sender.Components[I]).DateTime := VarToDateTime(FieldValues[sender.Components[I].Name]);
-        end else if (sender.Components[I] is TRichEdit) then
+        end
+
+        else if (sender.Components[I] is TRichEdit) then
            TRichedit(sender.Components[I]).text := VarToStr(FieldValues[sender.Components[I].Name])
         else if (sender.Components[I] is  Tradiobutton) then
            TRadiobutton(sender.Components[I]).Checked := VarToStr(FieldValues[sender.Components[I].Name])='1'
@@ -580,6 +589,9 @@ begin
         else if (mFrame.Components[I] is Tdatetimepicker) then
            FieldByName(TDatetimePicker(mFrame.Components[I]).Name).Asstring:=
            datetostr(TDatetimePicker(mFrame.Components[I]).date)
+         else if (mFrame.Components[I] is TRzDateTimeEdit) then
+           FieldByName(TRzDateTimeEdit(mFrame.Components[I]).Name).Asstring:=
+           TRzDateTimeEdit(mFrame.Components[I]).Text
         else if (mFrame.Components[I] is TRichedit) then
            FieldByName(TRichedit(mFrame.Components[I]).Name).AsString:=
                                 TRichedit(mFrame.Components[I]).Text

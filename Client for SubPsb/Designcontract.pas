@@ -31,11 +31,11 @@ type
     htbh: TEdit;
     Button1: TButton;
     Button2: TButton;
-    qdrq: TDateTimePicker;
     htje: TEdit;
     MyReport1: TMyReport;
     prjname: TEdit;
     prjtype: TEdit;
+    qdrq: TRzDateTimeEdit;
 
 
     procedure Button1Click(Sender: TObject);
@@ -243,7 +243,7 @@ begin
      PrintStr.Add(frm_prjdesign.Fram_prjbase.stxt_prjname.Caption+'('+Erpcode+')'); //1:项目名称
      PrintStr.Add(htbh.Text);                                      //2: 合同编号
      PrintStr.Add(stdw.Text);                                      //3:合同乙方：设计单位
-     PrintStr.Add(datetostr(qdrq.Date));                           //4：签订日期
+     PrintStr.Add(qdrq.Text);                           //4：签订日期
      PrintStr.Add(stdw.Text);                            // 5:设计单位
      PrintStr.Add(frm_prjdesign.Fram_prjbase.stxt_prjname.Caption);// 6：工程名称
      PrintStr.Add(frm_prjdesign.Fram_prjbase.stxt_prjname.Caption);// 7：工程名称
@@ -387,8 +387,8 @@ var cSql:string;
 begin
   if  GetPrintParam then
   begin
-     if htbh.Text ='' then
-      htbh.Text := GetContractNO('4',qdrq.Date);
+    // if htbh.Text ='' then
+     // htbh.Text := GetContractNO('4',qdrq.Date);
       htje.Text := zsjf;
        if strprjtype='业扩' then strprjtype:='002';
          if strprjtype='代工' then strprjtype:='001';

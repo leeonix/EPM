@@ -133,8 +133,8 @@ begin
     edt_htje.Text:= dm_epm.adoqry_plan.fieldbyname('htje').AsString;
     edt_jlf.Text:=  dm_epm.adoqry_plan.fieldbyname('jlf').AsString;
     if dm_epm.adoqry_plan.fieldbyname('printdate').AsString<>'' then
-       printdate.Date :=  dm_epm.adoqry_plan.fieldbyname('printdate').AsDateTime
-       else   printdate.Date := Date;
+       printdate.Date :=  dm_epm.adoqry_plan.fieldbyname('printdate').AsDateTime ;
+      // else   printdate.Date := Date;
     edt_prepayment.Text :=   dm_epm.adoqry_plan.fieldbyname('prepayment').AsString;
     jlf.Text:= dm_epm.adoqry_plan.fieldbyname('jlfee').AsString;
     chf.Text :=   dm_epm.adoqry_plan.fieldbyname('chf').AsString;

@@ -110,8 +110,20 @@ object frm_contractcompany: Tfrm_contractcompany
       end
       item
         Expanded = False
-        FieldName = 'TaxCode'
+        FieldName = 'Taxcode'
         Title.Caption = #31246#21495
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'DelayContent'
+        Title.Caption = #24310#26399#26465#27454
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'QualityContent'
+        Title.Caption = #36136#20445#26465#27454
         Visible = True
       end>
   end
