@@ -71,6 +71,48 @@ object frm_contractcompany: Tfrm_contractcompany
         Title.Caption = #32467#31639#28014#21160#29575
         Width = 82
         Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Tel'
+        Title.Caption = #30005#35805
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Fax'
+        Title.Caption = #20256#30495
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Postcode'
+        Title.Caption = #37038#32534
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Bankname'
+        Title.Caption = #24320#25143#34892
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Bankaccount'
+        Title.Caption = #36134#21495
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Contactor'
+        Title.Caption = #32852#31995#20154
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'TaxCode'
+        Title.Caption = #31246#21495
+        Visible = True
       end>
   end
   object DBNavigator1: TDBNavigator

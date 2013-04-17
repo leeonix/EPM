@@ -3,8 +3,8 @@ unit SelectContract;
 interface
 
 uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Buttons, ExtCtrls,dm,pubvar,MyReport, 
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, DateUtils ,
+  Dialogs, StdCtrls, Buttons, ExtCtrls,dm,pubvar,MyReport,  StrUtils,
   OleServer, Word2000, RzPanel, RzRadGrp;
 
 type
@@ -36,12 +36,30 @@ type
     FXfRate : string;
     Fprepayment :string;
     FprjAddress :string;
+    FPostCode:string;
+    FTel:string;
+    FFax:string;
+    FBank:string;
+    FBankAccount:string;
     FJLdwAddress :string;
     FJLdwPostCode :string;
-    FJLdwTel,FJffzr :string;
+    FJldwBank,FJldwBankAccount:string;
+    FSjdw:string;
+    FSjdwAddress:string;
+    FSjdwPostCode :string;
+    FSjdwTel,FSjdwFax:string;
+    FJLdwTel,FJLdwFax,FJffzr,FJlengineer :string;
+    FChdwAddress :string;
+    FChdwPostCode:string;
+    FChdwTel:string;
+    FChdwFax:string;
+    FChdwBank:string;
+    FChdwBankAccount:string;
+
     Printstrings:TstringList;
     function PrintContract(Typetag: Integer=1;TemplateTag:string=''):Boolean;
     function PrintContractState():Boolean;
+    function PrintBidContract():Boolean;
     function PrintKgbg(Typetag:Integer=1): Boolean;
     function PrintSafeRep():Boolean;
     function PrintLjxy():Boolean;
@@ -49,6 +67,8 @@ type
     function PrintJlContract():Boolean;
     function PrintChContract():Boolean;
     function PrintLjxy_Jl():Boolean;
+    function PrintStateJl():Boolean;
+    function PrintStateCh():Boolean;
 
     { Private declarations }
   public
@@ -72,7 +92,13 @@ begin
     screen.cursor:=crHourGlass;
    if  RzCheckGroup1.ItemChecked[0]  then
    begin
-     if RzRadioGroup3.ItemIndex=0 then  PrintContractState   else    PrintContract(1);
+     if RzRadioGroup3.ItemIndex=0 then
+     begin
+       if RzRadioGroup2.ItemIndex=0 then
+         PrintContractState else   PrintBidContract;
+     end  else begin
+         if RzRadioGroup4.ItemIndex=0 then     PrintContract(1) else   PrintContract(2)
+     end;
    end;
   // if  RzCheckGroup1.ItemChecked[1]  then  PrintContract(2);
  //  if  RzCheckGroup1.ItemChecked[2]  then  PrintContract(3);
@@ -81,7 +107,7 @@ begin
    if  RzCheckGroup1.ItemChecked[2]  then  PrintSafeRep ;
    if  RzCheckGroup1.ItemChecked[3]  then  PrintLjxy;
    if  RzCheckGroup1.ItemChecked[4]  then  PrintChContract;
-   if  RzCheckGroup1.ItemChecked[5]  then  PrintJlContract;
+   if  RzCheckGroup1.ItemChecked[5]  then  if RzRadioGroup3.ItemIndex=0 then PrintStateJl else PrintJlContract;
    if  RzCheckGroup1.ItemChecked[6]  then  PrintLjxy_Jl;
    //增加选择合同模板2012-02-01的功能
 //   if rzchckgrpoldcontract.ItemChecked[0] then  PrintContract(1,'2011');
@@ -90,7 +116,7 @@ begin
    screen.cursor:=crDefault;
 end;
 procedure TFrm_Selectcontract.FormCreate(Sender: TObject);
-var csql,sgdw,jldw,chdw :string;
+var csql,sgdw,jldw,chdw,erpcode :string;
 begin
    if   frm_main.Lsv_Task.Visible then
     begin
@@ -113,27 +139,44 @@ begin
     FcontractNo:= dm_epm.adoqry_plan.fieldbyname('sghtbh').AsString;
     Fprepayment := dm_epm.adoqry_plan.fieldbyname('prepayment').AsString;
     FJffzr :=  Trim(dm_epm.adoqry_plan.fieldbyname('Jffzr').AsString);
-//    if trim(dm_epm.adoqry_plan.fieldbyname('jldw').AsString) ='上海思南电力建设工程监理有限公司' then
-//    begin
-//       FJLdwAddress :='莘西路225号';
-//       FJLdwTel := '64921437';
-//       FJLdwPostCode := '201100';
-//    end
-//    else begin
-//       FJLdwAddress :='浦东新区华夏西路1001号';
-//       FJLdwTel := '68898783';
-//       FJLdwPostCode := '';
-//    end;
-    csql := 'select address,XfRate from corp where  name= '''+FP_sgdw+'''';
+
+    csql := 'select address,XfRate,Tel,Postcode,Fax,Bankname,Bankaccount from corp where  name= '''+FP_sgdw+'''';
     QryWork(Dm_Epm.adoqry_pub,csql);
     FAddress := Dm_Epm.adoqry_pub.FieldByName('address').AsString;
     FXfRate :=  trim(Dm_Epm.adoqry_pub.FieldByName('XfRate').AsString);
-
-    csql := 'select address,Tel,Postcode from corp where  name= '''+jldw+'''';
+    FPostCode:=  trim(Dm_Epm.adoqry_pub.FieldByName('Postcode').AsString);
+    FFax:=  trim(Dm_Epm.adoqry_pub.FieldByName('Fax').AsString);
+    FBank:=  trim(Dm_Epm.adoqry_pub.FieldByName('Bankname').AsString);
+    FBankAccount:=  trim(Dm_Epm.adoqry_pub.FieldByName('Bankaccount').AsString);
+    csql := 'select address,Tel,Postcode,Fax,Bankname, Bankaccount,Contactor from corp where  name= '''+jldw+'''';
     QryWork(Dm_Epm.adoqry_pub,csql);
     FJLdwAddress := Dm_Epm.adoqry_pub.FieldByName('address').AsString;
     FJLdwTel :=  Dm_Epm.adoqry_pub.FieldByName('Tel').AsString;
     FJLdwPostCode := Dm_Epm.adoqry_pub.FieldByName('Postcode').AsString;
+    FJLdwFax :=    Dm_Epm.adoqry_pub.FieldByName('Fax').AsString;
+    FJldwBank :=    trim(Dm_Epm.adoqry_pub.FieldByName('Bankname').AsString);
+    FJldwBankAccount:= trim(Dm_Epm.adoqry_pub.FieldByName('Bankaccount').AsString);
+    FJlengineer :=   trim(Dm_Epm.adoqry_pub.FieldByName('Contactor').AsString);
+
+    csql := 'select address,Tel,Postcode,Fax,Bankname,Bankaccount from corp where  name= '''+chdw+'''';
+    QryWork(Dm_Epm.adoqry_pub,csql);
+    FChdwAddress := Dm_Epm.adoqry_pub.FieldByName('address').AsString;
+    FChdwTel :=  Dm_Epm.adoqry_pub.FieldByName('Tel').AsString;
+    FChdwPostCode := Dm_Epm.adoqry_pub.FieldByName('Postcode').AsString;
+    FChdwFax :=    Dm_Epm.adoqry_pub.FieldByName('Fax').AsString;
+    FChdwBank :=    trim(Dm_Epm.adoqry_pub.FieldByName('Bankname').AsString);
+    FChdwBankAccount:= trim(Dm_Epm.adoqry_pub.FieldByName('Bankaccount').AsString);
+
+    erpcode := Fprjaccount;
+    if ContainsStr(erpcode,'-') then
+    erpcode := Copy(erpcode,1,Pos('-',erpcode)-1);
+    csql:='SELECT stdw,Postcode,Tel,Fax,Address FROM DESCONTRACT INNER JOIN Corp ON stdw= Name WHERE Erpcode='''+erpcode+'''';
+     QryWork(Dm_Epm.adoqry_pub,csql);
+     FSjdw:=    Dm_Epm.adoqry_pub.FieldByName('stdw').AsString;
+     FSjdwAddress :=  Dm_Epm.adoqry_pub.FieldByName('Address').AsString;
+     FSjdwPostCode := Dm_Epm.adoqry_pub.FieldByName('Postcode').AsString;
+     FSjdwTel := Dm_Epm.adoqry_pub.FieldByName('Tel').AsString;
+     FSjdwFax := Dm_Epm.adoqry_pub.FieldByName('Fax').AsString;
 
     csql := 'select prjadd from projectinfo where  prjcode= '''+Ptaskinfo(frm_main.Lsv_Task.Selected.Data)^.PrjDm+'''';
     QryWork(Dm_Epm.adoqry_pub,csql);
@@ -141,15 +184,15 @@ begin
     Printstrings := TstringList.Create;
      //默认的要打印的合同类型
     RzCheckGroup1.ItemChecked[0]:= true;
+    RzCheckGroup1.ItemChecked[2]:= true;
     RzCheckGroup1.ItemChecked[3]:= true;
-    RzCheckGroup1.ItemChecked[4]:= true;
-    RzCheckGroup1.ItemChecked[5]:= true;
+
     if dm_epm.adoqry_plan.fieldbyname('chhtbh').AsString<>'' then
-    RzCheckGroup1.ItemChecked[6]:= true;
+    RzCheckGroup1.ItemChecked[4]:= true;
     if dm_epm.adoqry_plan.fieldbyname('jlhtbh').AsString<>'' then
     begin
-      RzCheckGroup1.ItemChecked[7]:= true;
-       RzCheckGroup1.ItemChecked[8]:= true;
+       RzCheckGroup1.ItemChecked[5]:= true;
+       RzCheckGroup1.ItemChecked[6]:= true;
     end;
 
 end;
@@ -265,25 +308,23 @@ begin
      if RzRadioGroup4.ItemIndex=0 then   Printstrings.Add('(1)')  else      Printstrings.Add('(2)');
      PrintStrings.Add(FJffzr);
      PrintStrings.Add(trim(fieldbyname('jldw').AsString));
-     PrintStrings.Add('/');   //监理工程师
+     PrintStrings.Add(FJlengineer);   //监理工程师
      PrintStrings.Add(FP_sgdw);
      PrintStrings.Add(FPrintDate);
      PrintStrings.Add(Loginuser);
       PrintStrings.Add(FPrintDate);
      PrintStrings.Add(FAddress);
-     PrintStrings.Add('');  //邮编
-     PrintStrings.Add('');  //
-     PrintStrings.Add('');  //
-     PrintStrings.Add('');  //邮编
-     PrintStrings.Add('');  //
-     PrintStrings.Add('');  //
+     PrintStrings.Add(FPostCode);  //邮编
+     PrintStrings.Add(FTel);  //
+     PrintStrings.Add(FFax);  //
+     PrintStrings.Add(FBank);  //kaihuhang
+     PrintStrings.Add(FBankAccount);  //    账号
+     PrintStrings.Add('');  //   税号
      if  FXfRate<>'' then
      PrintStrings.Add('6.1.4 其他：在结算总价审价后的基础上，按照中标结算下浮率下浮'+FXfRate+'作为最终结算价 。')
      else       PrintStrings.Add('');
    end;
-   if RzRadioGroup2.ItemIndex=0 then MyReport1.templatefilename:='工程施工合同(非招标)'
-     else MyReport1.templatefilename:='工程施工合同(招标)' ;
-
+   MyReport1.templatefilename:='工程施工合同(非招标)'  ;
    MyReport1.execute('',PrintStrings);
 end;
 
@@ -377,6 +418,78 @@ begin
    MyReport1.execute('',PrintStrings);
 end;
 
+function TFrm_Selectcontract.PrintStateCh: Boolean;
+begin
+ with dm_epm.adoqry_plan do
+  begin
+   PrintStrings.Clear;
+    PrintStrings.Add(Fprjname);     //工程名称
+   PrintStrings.Add(trim(fieldbyname('jlhtbh').AsString));   // 监理合同编号
+    PrintStrings.Add(Fprjname);     //工程名称
+   PrintStrings.Add(trim(fieldbyname('jldw').AsString));      // 监理合同乙方单位
+   PrintStrings.Add(FPrintDate);
+
+   PrintStrings.Add(Fprjname);     //工程名称
+   PrintStrings.Add(trim(fieldbyname('jldw').AsString));      // 监理合同乙方单位
+   PrintStrings.Add(Fprjname);     //工程名称
+   PrintStrings.Add(Fprjname);     //工程名称
+   PrintStrings.Add(FprjAddress);    //工程地点
+    PrintStrings.Add(FJlengineer);
+
+
+   PrintStrings.Add(fieldbyname('jlfee').AsString+'元(大写:'+Money2ChineseCapital2(fieldbyname('jlfee').AsFloat)+'元)');  //监理费
+   PrintStrings.Add(FPrintDate);
+   PrintStrings.Add(Loginuser);
+    PrintStrings.Add(FPrintDate);
+   PrintStrings.Add(FJLdwAddress); // 乙方地址信息
+   PrintStrings.Add(FJLdwPostCode); //邮编
+   PrintStrings.Add(FJLdwTel); // 电话
+    PrintStrings.Add(FJLdwFax); //
+   PrintStrings.Add(FJldwBank);
+    PrintStrings.Add(FJldwBankAccount);
+   PrintStrings.Add(trim(fieldbyname('jldw').AsString));
+
+  end;
+   MyReport1.templatefilename:='工程监理合同';
+   MyReport1.execute('',PrintStrings);
+end;
+
+function TFrm_Selectcontract.PrintStateJl: Boolean;
+begin
+  with dm_epm.adoqry_plan do
+  begin
+   PrintStrings.Clear;
+    PrintStrings.Add(Fprjname);     //工程名称
+   PrintStrings.Add(trim(fieldbyname('jlhtbh').AsString));   // 监理合同编号
+    PrintStrings.Add(Fprjname);     //工程名称
+   PrintStrings.Add(trim(fieldbyname('jldw').AsString));      // 监理合同乙方单位
+   PrintStrings.Add(FPrintDate);
+
+   PrintStrings.Add(Fprjname);     //工程名称
+   PrintStrings.Add(trim(fieldbyname('jldw').AsString));      // 监理合同乙方单位
+   PrintStrings.Add(Fprjname);     //工程名称
+   PrintStrings.Add(Fprjname);     //工程名称
+   PrintStrings.Add(FprjAddress);    //工程地点
+    PrintStrings.Add(FJlengineer);
+
+
+   PrintStrings.Add(fieldbyname('jlfee').AsString+'元(大写:'+Money2ChineseCapital2(fieldbyname('jlfee').AsFloat)+'元)');  //监理费
+   PrintStrings.Add(FPrintDate);
+   PrintStrings.Add(Loginuser);
+    PrintStrings.Add(FPrintDate);
+   PrintStrings.Add(FJLdwAddress); // 乙方地址信息
+   PrintStrings.Add(FJLdwPostCode); //邮编
+   PrintStrings.Add(FJLdwTel); // 电话
+    PrintStrings.Add(FJLdwFax); //
+   PrintStrings.Add(FJldwBank);
+    PrintStrings.Add(FJldwBankAccount);
+   PrintStrings.Add(trim(fieldbyname('jldw').AsString));
+
+  end;
+   MyReport1.templatefilename:='工程监理合同';
+   MyReport1.execute('',PrintStrings);
+end;
+
 function TFrm_Selectcontract.PrintLjxy_Jl: Boolean;
 begin
    with dm_epm.adoqry_plan do
@@ -391,8 +504,56 @@ begin
    MyReport1.execute('',PrintStrings);
 end;
 
+
+function TFrm_Selectcontract.PrintBidContract: Boolean;
+begin
+  with dm_epm.adoqry_plan do
+   begin
+     PrintStrings.Clear;
+     PrintStrings.Add(Fprjname);
+     PrintStrings.Add(FcontractNo);
+     PrintStrings.Add(Fprjname);
+     PrintStrings.Add(FP_sgdw);
+     PrintStrings.Add(FPrintDate);
+     PrintStrings.Add(FP_sgdw);
+     PrintStrings.Add(Fprjname);
+     PrintStrings.Add(Fprjname);
+     PrintStrings.Add(FprjAddress);//工程地点
+     PrintStrings.Add(fieldbyname('jhkgrq').AsString);
+     PrintStrings.Add(fieldbyname('jhjgrq').AsString);
+     PrintStrings.Add(UIntToStr(DaysBetween(fieldbyname('jhkgrq').AsDateTime,fieldbyname('jhjgrq').AsDateTime))) ;
+     PrintStrings.Add(Money2ChineseCapital2(fieldbyname('htje').AsFloat)+'(￥'+fieldbyname('htje').AsString+'元)');
+     PrintStrings.Add(FP_sgdw);
+     PrintStrings.Add(FPrintDate);
+     PrintStrings.Add(FPrintDate);
+     PrintStrings.Add(FAddress);
+     PrintStrings.Add(FPostCode);  //邮编
+     PrintStrings.Add(FTel);  // 电话
+     PrintStrings.Add(FFax);  // 传真
+     PrintStrings.Add(FBank);  //开户行
+     PrintStrings.Add(FBankAccount);  // 账号
+
+     // 设计单位信息
+     PrintStrings.Add(FSjdw);
+     PrintStrings.Add(FSjdwAddress);
+     PrintStrings.Add(FSjdwPostCode);
+     PrintStrings.Add(FSjdwTel);
+     PrintStrings.Add(FSjdwFax);
+     //监理单位信息
+     PrintStrings.Add(trim(fieldbyname('jldw').AsString));
+     PrintStrings.Add(FJLdwAddress); // 乙方地址信息
+     PrintStrings.Add(FJLdwPostCode); //邮编
+     PrintStrings.Add(FJLdwTel); // 电话
+     PrintStrings.Add(FJLdwFax); // 电话
+    PrintStrings.Add(Money2ChineseCapital2(fieldbyname('jlf').AsFloat));       //安全措施费
+   end;
+   MyReport1.templatefilename:='工程施工合同(招标)' ;
+   MyReport1.execute('',PrintStrings);
+end;
+
 //打印测绘合同
 function TFrm_Selectcontract.PrintChContract: Boolean;
+
 begin
   with dm_epm.adoqry_plan do
   begin
@@ -407,7 +568,21 @@ begin
    PrintStrings.Add(trim(fieldbyname('chdw').AsString));      // 测绘合同乙方单位
   // PrintStrings.Add(Loginuser);   // 经办人
   end;
-   MyReport1.templatefilename:='chht';
+  if RzRadioGroup3.ItemIndex=0  then
+  begin
+    MyReport1.templatefilename:='地下管线跟踪测量技术服务合同';
+    PrintStrings.Add(FPrintDate);
+    PrintStrings.Add(FChdwAddress);
+    PrintStrings.Add(FChdwPostCode);
+    PrintStrings.Add(FChdwTel);
+    PrintStrings.Add(FChdwFax);
+    PrintStrings.Add(FChdwBank);
+    PrintStrings.Add(FChdwBankAccount);
+    PrintStrings.Add(trim(dm_epm.adoqry_plan.fieldbyname('chhtbh').AsString));
+    PrintStrings.Add(Fprjname);
+     PrintStrings.Add(trim(dm_epm.adoqry_plan.fieldbyname('chdw').AsString));
+    PrintStrings.Add(FPrintDate);
+  end else  MyReport1.templatefilename:='chht';
    MyReport1.execute('',PrintStrings);
 end;
 

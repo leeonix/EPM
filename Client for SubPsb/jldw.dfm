@@ -77,6 +77,18 @@ object frm_jldw: Tfrm_jldw
         Title.Caption = #36134#21495
         Width = 166
         Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Contactor'
+        Title.Caption = #30417#29702#24037#31243#24072
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'TaxCode'
+        Title.Caption = #31246#21495
+        Visible = True
       end>
   end
   object DBNavigator1: TDBNavigator

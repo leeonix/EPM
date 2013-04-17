@@ -21,9 +21,9 @@ object Frm_Contract: TFrm_Contract
   TextHeight = 14
   object RzGroupBox2: TRzGroupBox
     Left = 8
-    Top = 12
+    Top = 8
     Width = 366
-    Height = 293
+    Height = 329
     Caption = #26045#24037#21512#21516
     TabOrder = 13
     object Label9: TLabel
@@ -82,6 +82,21 @@ object Frm_Contract: TFrm_Contract
       Height = 14
       Caption = #30002#26041#36127#36131#20154':'
     end
+    object Label5: TLabel
+      Left = 21
+      Top = 297
+      Width = 91
+      Height = 14
+      Caption = #26045#24037#21512#21516#32534#21495':'
+    end
+    object sghtbh: TEdit
+      Left = 130
+      Top = 289
+      Width = 167
+      Height = 22
+      ImeName = #20013#25991'('#31616#20307') - '#25628#29399#25340#38899#36755#20837#27861
+      TabOrder = 0
+    end
   end
   object Button1: TButton
     Left = 421
@@ -104,7 +119,7 @@ object Frm_Contract: TFrm_Contract
   end
   object RzGroupBox1: TRzGroupBox
     Left = 8
-    Top = 343
+    Top = 375
     Width = 377
     Height = 74
     Caption = #24310#26399#21512#21516
@@ -145,7 +160,7 @@ object Frm_Contract: TFrm_Contract
   end
   object RzCheckBox1: TRzCheckBox
     Left = 8
-    Top = 321
+    Top = 353
     Width = 75
     Height = 16
     Caption = #26159#21542#24310#26399
@@ -154,9 +169,9 @@ object Frm_Contract: TFrm_Contract
     OnClick = RzCheckBox1Click
   end
   object RzGroupBox3: TRzGroupBox
-    Left = 399
+    Left = 397
     Top = 8
-    Width = 338
+    Width = 340
     Height = 146
     Caption = #30417#29702#21512#21516
     TabOrder = 10
@@ -173,6 +188,13 @@ object Frm_Contract: TFrm_Contract
       Width = 49
       Height = 14
       Caption = #30417#29702#36153':'
+    end
+    object Label1: TLabel
+      Left = 0
+      Top = 104
+      Width = 91
+      Height = 14
+      Caption = #30417#29702#21512#21516#32534#21495':'
     end
     object Jldw: TComboBox
       Left = 93
@@ -194,12 +216,20 @@ object Frm_Contract: TFrm_Contract
       ImeName = #20013#25991'('#31616#20307') - '#25628#29399#25340#38899#36755#20837#27861
       TabOrder = 1
     end
+    object jlhtbh: TEdit
+      Left = 93
+      Top = 101
+      Width = 225
+      Height = 22
+      ImeName = #20013#25991'('#31616#20307') - '#25628#29399#25340#38899#36755#20837#27861
+      TabOrder = 2
+    end
   end
   object RzGroupBox4: TRzGroupBox
     Left = 397
-    Top = 179
+    Top = 183
     Width = 338
-    Height = 126
+    Height = 154
     Caption = #27979#32472#21512#21516
     TabOrder = 11
     object Label14: TLabel
@@ -215,6 +245,13 @@ object Frm_Contract: TFrm_Contract
       Width = 49
       Height = 14
       Caption = #27979#32472#36153':'
+    end
+    object Label4: TLabel
+      Left = 24
+      Top = 107
+      Width = 91
+      Height = 14
+      Caption = #27979#32472#21512#21516#32534#21495':'
     end
     object chdw: TComboBox
       Left = 93
@@ -233,6 +270,14 @@ object Frm_Contract: TFrm_Contract
       Height = 22
       ImeName = #20013#25991'('#31616#20307') - '#25628#29399#25340#38899#36755#20837#27861
       TabOrder = 1
+    end
+    object chhtbh: TEdit
+      Left = 93
+      Top = 104
+      Width = 225
+      Height = 22
+      ImeName = #20013#25991'('#31616#20307') - '#25628#29399#25340#38899#36755#20837#27861
+      TabOrder = 2
     end
   end
   object Et_jhkgrq: TEdit

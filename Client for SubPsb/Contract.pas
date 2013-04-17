@@ -54,6 +54,12 @@ type
     lbljffzr: TLabel;
     cbb_jffzr: TComboBox;
     btn_setparam: TRzButton;
+    Label1: TLabel;
+    jlhtbh: TEdit;
+    Label4: TLabel;
+    chhtbh: TEdit;
+    Label5: TLabel;
+    sghtbh: TEdit;
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
@@ -117,7 +123,7 @@ end;
 
 procedure TFrm_Contract.FormCreate(Sender: TObject);
 begin
-    cb_sgdw.Text:=dm_epm.adoqry_plan.fieldbyname('sgdw').AsString;
+    cb_sgdw.Text:= dm_epm.adoqry_plan.fieldbyname('sgdw').AsString;
     cbb_jffzr.Text := dm_epm.adoqry_plan.fieldbyname('Jffzr').AsString;
     FillInJffzr;
 
@@ -156,6 +162,9 @@ begin
         RzCheckBox1.Enabled := false;
     end; 
     if edt_jlf.Text =''  then    edt_jlf.Text := '0';
+    sghtbh.Text := dm_epm.adoqry_plan.fieldbyname('sghtbh').AsString;
+    jlhtbh.Text := dm_epm.adoqry_plan.fieldbyname('jlhtbh').AsString;
+    chhtbh.Text := dm_epm.adoqry_plan.fieldbyname('chhtbh').AsString;
 
 end;
 
