@@ -60,6 +60,8 @@ type
     FChdwBank:string;
     FChdwBankAccount:string;
 
+    FDGSQID :string;
+
     Printstrings:TstringList;
     function PrintContract(Typetag: Integer=1;TemplateTag:string=''):Boolean;
     function PrintContractState():Boolean;
@@ -72,7 +74,7 @@ type
     function PrintChContract():Boolean;
     function PrintLjxy_Jl():Boolean;
     function PrintStateJl():Boolean;
-    function PrintStateCh():Boolean;
+
 
     { Private declarations }
   public
@@ -128,6 +130,7 @@ begin
       Fprjname := Ptaskinfo(frm_main.Lsv_Task.Selected.Data)^.prjname ;
       Fprjtype :=Ptaskinfo(frm_main.Lsv_Task.Selected.Data)^.prjtype ;
       FDesignBy := Ptaskinfo(frm_main.Lsv_Task.Selected.Data)^.DesignBy ;
+      FDGSQID := Ptaskinfo(Frm_Main.Lsv_Task.Selected.data)^.Prjsource;
     end else
     if   Fram_TltBase.Visible then
     begin
@@ -135,11 +138,12 @@ begin
       Fprjname := Ptaskinfo(Fram_TltBase.cxTLt_com.FocusedNode.Data)^.prjname;
       Fprjtype := Trim(Ptaskinfo(Fram_TltBase.cxTLt_com.FocusedNode.Data)^.Prjtype);
       FDesignBy := Ptaskinfo(Fram_TltBase.cxTLt_com.FocusedNode.Data)^.DesignBy;
+      FDGSQID :=  Ptaskinfo(Fram_TltBase.cxTLt_com.FocusedNode.Data)^.Prjsource
     end;
     FP_sgdw    := Dm_Epm.adoqry_plan.fieldbyname('sgdw').AsString ;//2010-06 修改为一级合同主体单位
     chdw :=   Dm_Epm.adoqry_plan.fieldbyname('chdw').AsString ;
     jldw :=   Dm_Epm.adoqry_plan.fieldbyname('jldw').AsString  ;
-    FPrintDate := Dm_Epm.adoqry_plan.fieldbyname('PrintDate').AsString ;
+    FPrintDate := Dm_Epm.adoqry_plan.fieldbyname('PrintDate').AsString;
     FcontractNo:= dm_epm.adoqry_plan.fieldbyname('sghtbh').AsString;
     Fprepayment := dm_epm.adoqry_plan.fieldbyname('prepayment').AsString;
     FJffzr :=  Trim(dm_epm.adoqry_plan.fieldbyname('Jffzr').AsString);
@@ -183,19 +187,27 @@ begin
      FSjdwPostCode := Dm_Epm.adoqry_pub.FieldByName('Postcode').AsString;
      FSjdwTel := Dm_Epm.adoqry_pub.FieldByName('Tel').AsString;
      FSjdwFax := Dm_Epm.adoqry_pub.FieldByName('Fax').AsString;
+     if FDGSQID<>'' then
+     begin
+        csql := 'select YHDZ from DGAPPLY where  DGSQID= '''+FDGSQID+'''';
+        QryWork(Dm_Epm.adoqry_pub,csql);
+        FprjAddress := Dm_Epm.adoqry_pub.FieldByName('YHDZ').AsString;
+     end else
+     begin
+         csql := 'select prjadd from projectinfo where  prjcode= '''+Ptaskinfo(frm_main.Lsv_Task.Selected.Data)^.PrjDm+'''';
+         QryWork(Dm_Epm.adoqry_pub,csql);
+         FprjAddress := Dm_Epm.adoqry_pub.FieldByName('prjadd').AsString;
+     end;
 
-    csql := 'select prjadd from projectinfo where  prjcode= '''+Ptaskinfo(frm_main.Lsv_Task.Selected.Data)^.PrjDm+'''';
-    QryWork(Dm_Epm.adoqry_pub,csql);
-    FprjAddress := Dm_Epm.adoqry_pub.FieldByName('prjadd').AsString;
     Printstrings := TstringList.Create;
      //默认的要打印的合同类型
     RzCheckGroup1.ItemChecked[0]:= true;
     RzCheckGroup1.ItemChecked[2]:= true;
     RzCheckGroup1.ItemChecked[3]:= true;
-
-    if dm_epm.adoqry_plan.fieldbyname('chhtbh').AsString<>'' then
+           //StrToInt(fieldbyname('jlfee').AsString)>0
+    if ((dm_epm.adoqry_plan.fieldbyname('chf').AsString<>'')  and ( StrToInt(dm_epm.adoqry_plan.fieldbyname('chf').AsString)>0))  then
     RzCheckGroup1.ItemChecked[4]:= true;
-    if dm_epm.adoqry_plan.fieldbyname('jlhtbh').AsString<>'' then
+    if ((dm_epm.adoqry_plan.fieldbyname('jlfee').AsString<>'')  and (StrToInt(dm_epm.adoqry_plan.fieldbyname('jlfee').AsString)>0))  then
     begin
        RzCheckGroup1.ItemChecked[5]:= true;
        RzCheckGroup1.ItemChecked[6]:= true;
@@ -314,13 +326,13 @@ begin
      PrintStrings.Add(Money2ChineseCapital2(fieldbyname('jlf').AsFloat));
      if RzRadioGroup4.ItemIndex=0 then   Printstrings.Add('(1)')  else      Printstrings.Add('(2)');
      PrintStrings.Add(FJffzr);
-     if StrToInt(fieldbyname('jlfee').AsString)>0 then
+     if (fieldbyname('jlfee').AsString<>'') and ( StrToInt(fieldbyname('jlfee').AsString)>0) then
      begin
         PrintStrings.Add(trim(fieldbyname('jldw').AsString));
          PrintStrings.Add(FJlengineer);   //监理工程师
      end else begin
          PrintStrings.Add('/');
-         PrintStrings.Add('/');   //监理工程师
+         PrintStrings.Add('/');
      end;
 
 
@@ -435,41 +447,6 @@ begin
    MyReport1.execute('',PrintStrings);
 end;
 
-function TFrm_Selectcontract.PrintStateCh: Boolean;
-begin
- with dm_epm.adoqry_plan do
-  begin
-   PrintStrings.Clear;
-    PrintStrings.Add(Fprjname);     //工程名称
-   PrintStrings.Add(trim(fieldbyname('jlhtbh').AsString));   // 监理合同编号
-    PrintStrings.Add(Fprjname);     //工程名称
-   PrintStrings.Add(trim(fieldbyname('jldw').AsString));      // 监理合同乙方单位
-   PrintStrings.Add(FPrintDate);
-
-   PrintStrings.Add(Fprjname);     //工程名称
-   PrintStrings.Add(trim(fieldbyname('jldw').AsString));      // 监理合同乙方单位
-   PrintStrings.Add(Fprjname);     //工程名称
-   PrintStrings.Add(Fprjname);     //工程名称
-   PrintStrings.Add(FprjAddress);    //工程地点
-    PrintStrings.Add(FJlengineer);
-
-
-   PrintStrings.Add(fieldbyname('jlfee').AsString+'元(大写:'+Money2ChineseCapital2(fieldbyname('jlfee').AsFloat)+'元)');  //监理费
-   PrintStrings.Add(FPrintDate);
-   PrintStrings.Add(Loginuser);
-    PrintStrings.Add(FPrintDate);
-   PrintStrings.Add(FJLdwAddress); // 乙方地址信息
-   PrintStrings.Add(FJLdwPostCode); //邮编
-   PrintStrings.Add(FJLdwTel); // 电话
-    PrintStrings.Add(FJLdwFax); //
-   PrintStrings.Add(FJldwBank);
-    PrintStrings.Add(FJldwBankAccount);
-   PrintStrings.Add(trim(fieldbyname('jldw').AsString));
-
-  end;
-   MyReport1.templatefilename:='工程监理合同';
-   MyReport1.execute('',PrintStrings);
-end;
 
 function TFrm_Selectcontract.PrintStateJl: Boolean;
 begin
@@ -598,8 +575,9 @@ begin
     PrintStrings.Add(FChdwBankAccount);
 
     PrintStrings.Add(Fprjname);
-     PrintStrings.Add(trim(dm_epm.adoqry_plan.fieldbyname('chdw').AsString));
+    PrintStrings.Add(trim(dm_epm.adoqry_plan.fieldbyname('chdw').AsString));
     PrintStrings.Add(FPrintDate);
+    Printstrings.Add(FprjAddress) ;
   end else  MyReport1.templatefilename:='chht';
    MyReport1.execute('',PrintStrings);
 end;

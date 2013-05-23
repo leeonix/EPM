@@ -157,8 +157,19 @@ begin
      end;
    end  else
    begin
-    singlesjf :=  ADOQuery1.FieldByName('sjf').AsInteger;
-    Singlezj :=   ADOQuery1.FieldByName('sumfee').AsInteger;
+    if  (ADOQuery1.FieldByName('sumfee').AsString='')  then
+     begin
+           Singlezj :=0;
+         //ShowMessage('该Erp账号下有分账号的预算投资金额为空，请检查并确认导入正确的数据.');
+     end else Singlezj :=   ADOQuery1.FieldByName('sumfee').AsInteger;
+
+
+     if  (ADOQuery1.FieldByName('sjf').AsString='')  then
+     begin
+        singlesjf:=0;
+         //ShowMessage('该Erp账号下有分账号的预算投资金额为空，请检查并确认导入正确的数据.');
+     end else  singlesjf :=  ADOQuery1.FieldByName('sjf').AsInteger;
+
    end;
    ADOQuery1.Next;
  end;

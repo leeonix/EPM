@@ -147,7 +147,7 @@ type
     adoqry_planchdw: TStringField;
     procedure DataModuleCreate(Sender: TObject);
     procedure ADOQry_docAfterInsert(DataSet: TDataSet);
-    procedure ADOQry_docCalcFields(DataSet: TDataSet); 
+    procedure ADOQry_docCalcFields(DataSet: TDataSet);
   private
     { Private declarations }
   //  Procedure Execute

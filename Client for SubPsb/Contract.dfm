@@ -96,6 +96,7 @@ object Frm_Contract: TFrm_Contract
       Height = 22
       ImeName = #20013#25991'('#31616#20307') - '#25628#29399#25340#38899#36755#20837#27861
       TabOrder = 0
+      TextHint = #35831#22635#20837#32463#27861#31995#32479#20013#26045#24037#21512#21516#32534#21495
     end
   end
   object Button1: TButton
@@ -221,8 +222,8 @@ object Frm_Contract: TFrm_Contract
       Top = 101
       Width = 225
       Height = 22
-      ImeName = #20013#25991'('#31616#20307') - '#25628#29399#25340#38899#36755#20837#27861
       TabOrder = 2
+      TextHint = #35831#36755#20837#32463#27861#31995#32479#20013#33719#21462#30340#35813#21512#21516#32534#21495
     end
   end
   object RzGroupBox4: TRzGroupBox
@@ -276,8 +277,8 @@ object Frm_Contract: TFrm_Contract
       Top = 104
       Width = 225
       Height = 22
-      ImeName = #20013#25991'('#31616#20307') - '#25628#29399#25340#38899#36755#20837#27861
       TabOrder = 2
+      TextHint = #35831#22635#20837#32463#27861#31995#32479#20013#27979#32472#21512#21516#32534#21495
     end
   end
   object Et_jhkgrq: TEdit

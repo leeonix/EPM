@@ -150,8 +150,8 @@ object Dm_Epm: TDm_Epm
     SQL.Strings = (
       'select * from ARRANGE  '
       'where prjcode=:mycode')
-    Left = 360
-    Top = 168
+    Left = 304
+    Top = 152
     object adoqry_planSGDW: TStringField
       DisplayLabel = #26045#24037#21333#20301
       FieldName = 'SGDW'
@@ -194,9 +194,10 @@ object Dm_Epm: TDm_Epm
       Size = 13
     end
     object adoqry_plansghtbh: TStringField
-      DisplayWidth = 20
+      DisplayWidth = 50
       FieldName = 'sghtbh'
       FixedChar = True
+      Size = 50
     end
     object adoqry_planAccCorpcode: TStringField
       FieldName = 'AccCorpcode'
@@ -229,11 +230,13 @@ object Dm_Epm: TDm_Epm
     end
     object adoqry_planchhtbh: TWideStringField
       DisplayLabel = #27979#32472#21512#21516#32534#21495
+      DisplayWidth = 50
       FieldName = 'chhtbh'
       FixedChar = True
     end
     object adoqry_planjlhtbh: TWideStringField
       DisplayLabel = #30417#29702#21512#21516#32534#21495
+      DisplayWidth = 50
       FieldName = 'jlhtbh'
       FixedChar = True
     end

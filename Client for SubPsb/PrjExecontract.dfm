@@ -124,6 +124,7 @@ object Fram_Execontract: TFram_Execontract
         Expanded = False
         FieldName = 'prepayment'
         Title.Caption = #39044#20184#27454'(%)'
+        Width = 64
         Visible = True
       end
       item
@@ -142,11 +143,13 @@ object Fram_Execontract: TFram_Execontract
       item
         Expanded = False
         FieldName = 'jlhtbh'
+        Width = 64
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'Jlfee'
+        Width = 64
         Visible = True
       end
       item
@@ -158,6 +161,7 @@ object Fram_Execontract: TFram_Execontract
       item
         Expanded = False
         FieldName = 'Chf'
+        Width = 64
         Visible = True
       end
       item
@@ -182,23 +186,27 @@ object Fram_Execontract: TFram_Execontract
       item
         Expanded = False
         FieldName = 'DelayStart'
+        Width = 64
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'DelayEnd'
+        Width = 64
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'Sjf'
         Title.Caption = #35774#35745#36153
+        Width = 64
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'chdw'
         Title.Caption = #27979#32472#21333#20301
+        Width = 64
         Visible = True
       end>
   end

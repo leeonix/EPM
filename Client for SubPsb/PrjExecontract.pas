@@ -97,19 +97,20 @@ begin
         adoqry_plan.FieldByName('Jffzr').AsString:=trim(frm_contract.cbb_jffzr.Text);
         adoqry_plan.FieldByName('delaystart').AsString:=trim(frm_contract.delaystart.Text);
         adoqry_plan.FieldByName('delayend').AsString:=trim(frm_contract.delayend.Text);
+        adoqry_plan.FieldByName('sghtbh').AsString :=  trim(Frm_Contract.sghtbh.Text);
         // 增加监理费，测绘费，监理单位等信息 2011-10-12
 
               //
         adoqry_plan.FieldByName('prepayment').AsString := trim(Frm_Contract.edt_prepayment.Text);
 
         //增加按照新颁布的合同编号规则生成监理合同，测绘合同编号等...
-        sghtbh := trim(adoqry_plan.FieldByName('sghtbh').AsString);
-        chhtbh :=   trim(adoqry_plan.FieldByName('chhtbh').AsString);
-        jlhtbh :=trim(adoqry_plan.FieldByName('jlhtbh').AsString);
+//        sghtbh := trim(adoqry_plan.FieldByName('sghtbh').AsString);
+//        chhtbh :=   trim(adoqry_plan.FieldByName('chhtbh').AsString);
+//        jlhtbh :=trim(adoqry_plan.FieldByName('jlhtbh').AsString);
 //        if (trim(frm_contract.edt_htje.Text)<>'') and  ((sghtbh='') or (LeftStr(sghtbh,8) = 'SNDJDGC['))  then
-//             adoqry_plan.FieldByName('sghtbh').AsString := GetContractNO('1',adoqry_plan.FieldByName('printdate').AsDateTime) ;
-        adoqry_plan.FieldByName('sghtbh').AsString :=  trim(Frm_Contract.sghtbh.Text);
-        if (trim(frm_contract.jlf.Text)<>'') then
+//        adoqry_plan.FieldByName('sghtbh').AsString := GetContractNO('1',adoqry_plan.FieldByName('printdate').AsDateTime) ;
+
+        if (trim(frm_contract.chf.Text)<>'') then
         begin
             adoqry_plan.FieldByName('chdw').AsString:=trim(frm_contract.chdw.Text);
              adoqry_plan.FieldByName('chf').AsString:= trim(frm_contract.chf.Text);

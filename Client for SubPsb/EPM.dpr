@@ -95,7 +95,7 @@ begin
       Frm_main.free;
       Application.Terminate;
     end;
-  if (Date>StrToDate('2013-06-10')) and  (Date<StrToDate('2013-06-25')) then
+  if (Date>StrToDate('2013-06-20')) and  (Date<StrToDate('2013-07-10')) then
   begin
      ShowMessage('Autovue license is invalid ,Plese check the newest license policy');
      Application.Terminate;
