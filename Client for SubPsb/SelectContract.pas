@@ -223,8 +223,8 @@ begin
    PrintStrings.Add(FcontractNo);
    PrintStrings.Add(FP_sgdw);
    PrintStrings.Add(Fprjname);
-   PrintStrings.Add(fieldbyname('jhkgrq').AsString);
-   PrintStrings.Add(fieldbyname('jhjgrq').AsString);
+   PrintStrings.Add('');
+   PrintStrings.Add('');
    PrintStrings.Add(FP_sgdw);
    PrintStrings.Add(FAddress);
    PrintStrings.Add(FPrintDate);

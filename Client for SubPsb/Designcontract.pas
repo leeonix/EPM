@@ -405,6 +405,7 @@ begin
          if strprjtype='代工' then strprjtype:='001';
          if strprjtype='住宅配套' then strprjtype:='010';
          if strprjtype='更改' then strprjtype:='006';
+         if strprjtype='技改' then strprjtype:='006';
          if strprjtype='基建' then strprjtype:='004';
          if strprjtype='业扩配套' then strprjtype :='007';
       prjname.Text := strPrjName;

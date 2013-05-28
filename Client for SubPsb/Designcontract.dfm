@@ -157,7 +157,7 @@ object Fram_descontract: TFram_descontract
   end
   object Button1: TButton
     Left = 376
-    Top = 480
+    Top = 477
     Width = 65
     Height = 30
     Caption = #20445#23384

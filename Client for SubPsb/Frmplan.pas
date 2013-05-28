@@ -54,8 +54,8 @@ begin
   if mode=newmode then
   begin
    // cb_sgtype.Text:='';
-    jhkgrq.Date:= Date;
-    jhjgrq.Date:=IncMonth(Date,6);
+    //jhkgrq.Date:= Date;
+    //jhjgrq.Date:=IncMonth(Date,6);
     sgkgrq.Enabled:=false;
     sgjgrq.Enabled:=false;
   end else
@@ -72,8 +72,8 @@ begin
            jhjgrq.Date:=dm_epm.adoqry_plan.fieldbyname('jhjgrq').AsDateTime;
         end else
         begin
-           jhkgrq.Date:= Date;
-           jhjgrq.Date:=IncMonth(Date,6);
+          // jhkgrq.Date:= Date;
+          // jhjgrq.Date:=IncMonth(Date,6);
         end;
     if (dm_epm.adoqry_plan.fieldbyname('sgkgrq').AsString <> '')
         and  (dm_epm.adoqry_plan.fieldbyname('sgjgrq').AsString<>'' )
